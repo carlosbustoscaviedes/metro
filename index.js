@@ -107,25 +107,27 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
 
   let tiempoDuracion = `${pathDuration[`path${numeroScroll - 1}`]}000`;
 
-  setTimeout(() => {
-    // console.log(document.querySelector('[data-icono="icono"]'));
-    setHref();
-    // console.log(`SetTimeout Terminado ${tiempoDuracion}`);
-    // console.log(
-    //   /*----------------------------------------CODIGO CARLOS-----------------------------------*/
-    //   $('.modal_galeria_metro').css('display', 'block'),
-    //   galeriaCarlos(numeroScroll - 1),
-    //   $('.pantalla_bloqueo').css('display', 'block')
+  if (numeroScroll <= 6) {
+    setTimeout(() => {
+      // console.log(document.querySelector('[data-icono="icono"]'));
+      setHref();
+      // console.log(`SetTimeout Terminado ${tiempoDuracion}`);
+      // console.log(
+      //   /*----------------------------------------CODIGO CARLOS-----------------------------------*/
+      //   $('.modal_galeria_metro').css('display', 'block'),
+      //   galeriaCarlos(numeroScroll - 1),
+      //   $('.pantalla_bloqueo').css('display', 'block')
 
-    //   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
-    //   );
-    $('.modal_galeria_metro').css('display', 'block'),
-      galeriaCarlos(numeroScroll - 1),
-      $('.pantalla_bloqueo').css('display', 'block');
+      //   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
+      //   );
+      $('.modal_galeria_metro').css('display', 'block'),
+        galeriaCarlos(numeroScroll - 1),
+        $('.pantalla_bloqueo').css('display', 'block');
 
-    //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
-    cambiarColorParadas();
-  }, tiempoDuracion);
+      //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
+      cambiarColorParadas();
+    }, tiempoDuracion);
+  }
 
   //* -> Para una parada anterior
   if (numeroScroll == 6) {
