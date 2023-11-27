@@ -1,3 +1,4 @@
+// cerrar_imagenes -> CLose Modal
 let valor = false;
 let numeroScroll = 1;
 // const MenuUbicaciones = document.getElementById('MenuUbicaciones');
@@ -63,6 +64,8 @@ async function IrAbajo() {
 
   // Renderizado de Rutas -> Animación entre ruta y ruta
   templateSVGRutas();
+
+  console.log(numeroScroll, ' Dentro de IrAbajo Despues');
 }
 function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   document.documentElement.style.setProperty(
