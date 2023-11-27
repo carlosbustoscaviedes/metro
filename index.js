@@ -1,12 +1,8 @@
 let valor = false;
 let numeroScroll = 1;
-const MenuUbicaciones = document.getElementById('MenuUbicaciones');
-// const metroIcono = document.getElementById('metroIcono');
+// const MenuUbicaciones = document.getElementById('MenuUbicaciones');
 const metroIcono = document.querySelector('.metroIcono');
 const tamanoMapaTotal = document.getElementById('tamanoMapaTotal');
-
-
-
 
 /*===============================================
 //* Carlos
@@ -15,25 +11,25 @@ const tamanoMapaTotal = document.getElementById('tamanoMapaTotal');
 /*-----carlos---*/
 let posicion = 0;
 /*-----carlos---*/
-window.onload=galeriaCarlos(0);
+window.onload = galeriaCarlos(0);
 
 const estaciones = {
- estacion1: 'patio',
- estacion2: 'estacion1',
- estacion3: 'estacion7',
- estacion4: 'estacion13',
- estacion5: 'estacion16',
- estacion6: 'colaManiobras',
-}
+  estacion1: 'patio',
+  estacion2: 'estacion1',
+  estacion3: 'estacion7',
+  estacion4: 'estacion13',
+  estacion5: 'estacion16',
+  estacion6: 'colaManiobras',
+};
 
-let puntosMetros = document.querySelectorAll('.puntos_reset')
+let puntosMetros = document.querySelectorAll('.puntos_reset');
 
 function cambiarColorParadas(params) {
- puntosMetros.forEach(e => e.classList.remove('st5'));
-  document.getElementById(estaciones[`estacion${numeroScroll}`]).classList.add('st5')
+  puntosMetros.forEach((e) => e.classList.remove('st5'));
+  document
+    .getElementById(estaciones[`estacion${numeroScroll}`])
+    .classList.add('st5');
 }
-
-
 
 /*===============================================
 SVG AnimationMotion
@@ -52,209 +48,103 @@ const IconoMetros = document.getElementById('IconoMetros');
 const contenedorSvgMetro = document.getElementById('contenedorSvgMetro');
 /*======================Final SVG AnimationMotion========================*/
 
-async function IrAbajo(params) {
+async function IrAbajo() {
   numeroScroll == 8 ? (numeroScroll = 8) : numeroScroll++;
-  numeroScroll == 8 && MenuUbicaciones.classList.add('show');
-  tamanoMapaTotal.classList.remove(`ubicacion${numeroScroll - 1}`);
+  // numeroScroll == 8 && MenuUbicaciones.classList.add('show');
+  tamanoMapaTotal.classList.remove(`ubicacion${numeroScroll}`);
   tamanoMapaTotal.classList.remove('reverseAnimation');
-  tamanoMapaTotal.classList.add(`ubicacion${numeroScroll}`);
-  // IconoMetros.style.animationName = `ubicacionIcono${numeroScroll}`;
+  tamanoMapaTotal.classList.add(`ubicacion${numeroScroll + 1}`);
   tamanoMapaTotal.style.animationName = `ubicacionMapa${numeroScroll}`;
 
-  // console.log(vistasVariableFuncion);
-  // console.log(numeroScroll - 1, 'numeroScroll');
   document.documentElement.style.setProperty(
     '--duracionAnimacion',
-    `${pathDuration[`path${numeroScroll - 1}`]}s`
+    `${pathDuration[`path${numeroScroll + 1}`]}s`
   );
 
   // Renderizado de Rutas -> Animación entre ruta y ruta
   templateSVGRutas();
 }
-
-function IrArriba(params) {
-  // console.log(numeroScroll);
-  if (numeroScroll == 1) return;
-
-  numeroScroll == 1 ? (numeroScroll = 1) : numeroScroll--;
-  // mapa.classList.remove(mapa.classList[1]);
-  tamanoMapaTotal.classList.remove(`ubicacion${numeroScroll + 1}`);
-  tamanoMapaTotal.classList.add(`ubicacion${numeroScroll}`);
-  tamanoMapaTotal.classList.add(`reverseAnimation`);
-  tamanoMapaTotal.style.animationName = `ubicacionMapa${
-    numeroScroll + 1
-  }Reverse`;
-  IconoMetros.style.animationName = `ubicacionIcono${numeroScroll + 1}Reverse`;
-
-  templateSVGRutas('true');
-}
-
 function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   document.documentElement.style.setProperty(
     '--duracionAnimacion',
-    `${
-      reversa === 'true'
-        ? pathDuration[`path${numeroScroll}`]
-        : pathDuration[`path${numeroScroll - 1}`]
-    }s`
+    `${pathDuration[`path${numeroScroll - 1}`]}s`
   );
   // Renderizar todo el svg para que cargue el camino y se vea una animación.
-  contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${numeroScroll - 1}.png"
+  contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${
+    numeroScroll - 1
+  }.png"
   x="-12"
   y="-8"
   id="IconoMetros"
   class="metroIcono">
    <animateMotion
-     dur='${
-       reversa === 'true'
-         ? pathDuration[`path${numeroScroll}`]
-         : pathDuration[`path${numeroScroll - 1}`]
-     }s'
+     dur='${pathDuration[`path${numeroScroll - 1}`]}s'
      id="animateMotionHTML"
-     ${reversa === 'true' ? 'keyPoints="1;0" keyTimes="0;1" ' : ''}
      repeatCount="1"
      fill="freeze"
      ${
        funcionClick == 'true'
          ? `path=${
-             reversa === 'true'
-               ? pathMetro[
-                   `path${parseInt(eventClick.target.innerHTML.slice(-1))}`
-                 ]
-               : pathMetro[
-                   `path${parseInt(eventClick.target.innerHTML.slice(-1) - 1)}`
-                 ]
+             pathMetro[
+               `path${parseInt(eventClick.target.innerHTML.slice(-1) - 1)}`
+             ]
            }/>`
-         : `path=${
-             reversa === 'true'
-               ? pathMetro[`path${numeroScroll}`]
-               : pathMetro[`path${numeroScroll - 1}`]
-           }/>`
+         : `path=${pathMetro[`path${numeroScroll - 1}`]}/>`
      }
      
  </image>
  </svg>`;
-  // cambiarVistas(6, 20, 100, false);
 
   function setHref(params) {
-   console.log(document.querySelector('#contenedorSvgMetro').querySelector('image').setAttribute('href', `./pngAnimation/fin-trazo-${numeroScroll - 1}.png`));
+    document
+      .querySelector('#contenedorSvgMetro')
+      .querySelector('image')
+      .setAttribute('href', `./pngAnimation/fin-trazo-${numeroScroll - 1}.png`);
   }
 
-  let tiempoDuracion = `${pathDuration[`path${numeroScroll - 1}`]}000`
-  console.log(tiempoDuracion);
- 
+  let tiempoDuracion = `${pathDuration[`path${numeroScroll - 1}`]}000`;
+
   setTimeout(() => {
-       
+    // console.log(document.querySelector('[data-icono="icono"]'));
+    setHref();
+    // console.log(`SetTimeout Terminado ${tiempoDuracion}`);
+    // console.log(
+    //   /*----------------------------------------CODIGO CARLOS-----------------------------------*/
+    //   $('.modal_galeria_metro').css('display', 'block'),
+    //   galeriaCarlos(numeroScroll - 1),
+    //   $('.pantalla_bloqueo').css('display', 'block')
 
-   // console.log(document.querySelector('[data-icono="icono"]'));
-   setHref()
-   console.log(`SetTimeout Terminado ${tiempoDuracion}`);
-   console.log(
+    //   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
+    //   );
+    $('.modal_galeria_metro').css('display', 'block'),
+      galeriaCarlos(numeroScroll - 1),
+      $('.pantalla_bloqueo').css('display', 'block');
 
-
-    /*----------------------------------------CODIGO CARLOS-----------------------------------*/
-    $(".modal_galeria_metro").css('display', 'block'),
-    galeriaCarlos( numeroScroll - 1 ),
-    $(".pantalla_bloqueo").css('display', 'block')
-  
-   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
-   );
-
-   
-   //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
-   cambiarColorParadas();
+    //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
+    cambiarColorParadas();
   }, tiempoDuracion);
 
-  console.log(`${pathDuration[`path${numeroScroll - 1}`]}`);
-
-  if( `${pathDuration[`path${numeroScroll - 1}`]}` === "7"){
-
-    $(".cerrar_imagenes").attr('id', '7');
-  
+  //* -> Para una parada anterior
+  if (numeroScroll == 6) {
+    //* -> Para una parada Despues
+    // if (numeroScroll == 7) {
+    $('.cerrar_imagenes').attr('id', '7');
   }
 
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
-
 }
-
-window.addEventListener('wheel', (e) => {
-
- // alert(numeroScroll)
-  if (!valor) {
-    if (e.deltaY > 0) {
-      // console.log('Abajo');
-      unpauseAnimationsSVG();
-      IrAbajo();
-      
-    } else {
-      // console.log('Arriba');
-      if (numeroScroll != 1) {
-        unpauseAnimationsSVG();
-        IrArriba();
-      }
-    }
-    valor = true;
-  } else {
-    // console.log(valor, 'false');
-    setTimeout(() => {
-      valor = false;
-    }, 300);
-  }
-  
-});
 
 let currentY;
 let lastY;
 let toggleTrue = false;
-document.addEventListener('touchstart', function (e) {
-  currentY = e.touches[0].clientY;
-  lastY = currentY;
-  toggleTrue = true;
-});
-
-let direction;
-document.addEventListener('touchmove', (e) => {
-  let te = e.changedTouches[0].clientY;
-  if (lastY > te) {
-    if (toggleTrue) {
-      // console.log('Abajo');
-      IrAbajo();
-      toggleTrue = false;
-    }
-  } else {
-    if (toggleTrue) {
-      // console.log('Arriba');
-      IrArriba();
-      toggleTrue = false;
-    }
-  }
-});
 
 pauseAnimationsSVG();
 
 let posicionClick = null;
 document.addEventListener('click', (e) => {
-  if (e.target.matches('#MenuUbicaciones li')) {
-    // posicionClick = numeroScroll;
-    posicionClick = parseInt(e.target.innerHTML.slice(-1));
-    if (posicionClick > numeroScroll) {
-      // console.log('Mayor que');
-      tamanoMapaTotal.classList.remove(`reverseAnimation`);
-      tamanoMapaTotal.style.animationName = `ubicacionMapa${parseInt(
-        e.target.innerHTML.slice(-1)
-      )}`;
-      templateSVGRutas('false', 'true', e);
-    } else {
-      // console.log('Menor que');
-      tamanoMapaTotal.style.animationName = `ubicacionMapa${
-        parseInt(e.target.innerHTML.slice(-1)) + 1
-      }Reverse`;
-      tamanoMapaTotal.classList.add(`reverseAnimation`);
-      templateSVGRutas('true', 'true', e);
-    }
-    tamanoMapaTotal.classList.remove(`ubicacion${numeroScroll}`);
-    tamanoMapaTotal.classList.add(`ubicacion${e.target.innerHTML.slice(-1)}`);
-    numeroScroll = e.target.innerHTML.slice(-1);
+  if (e.target.matches('.cerrar_imagenes')) {
+    unpauseAnimationsSVG();
+    IrAbajo();
   }
 });
 
@@ -284,50 +174,8 @@ const pathDuration = {
   path7: '5',
 };
 
-let pos;
-let intervalAnimation;
-function cambiarVistas(
-  posInicial,
-  posFinal,
-  tiempoMilisegundos = 100,
-  direccion
-) {
-  console.log(posInicial, 'posInicial');
-  console.log(posFinal, 'posFinal');
-  console.log(tiempoMilisegundos, 'tiempoMilisegundos');
-  console.log(direccion, 'direccion');
-  pos = posInicial;
-  intervalAnimation = setInterval(frame, tiempoMilisegundos);
-  console.log(pos, 'pos');
-  function frame() {
-    if (pos == posFinal) {
-      clearInterval(intervalAnimation);
-    } else {
-      direccion == true ? pos-- : pos++;
-      // console.log(IconoMetros);
-      IconoMetros.setAttribute(
-        'href',
-        `https://www.eltiempo.com/infografias/2023/10/RutaMetroBogota/AnimacionVagon/v${pos}.png`
-      );
-    }
-  }
-}
-
-// https://www.eltiempo.com/infografias/2023/10/RutaMetroBogota/AnimacionVagon/v6.png
-// setTimeout(cambiarVistas(33, 6, 100, true), 1000);
-// setTimeout(() => {
-//   cambiarVistas(33, 6, 100, true);
-// }, 1000);
-// setTimeout(() => {
-//   cambiarVistas(6, 20, 100, false);
-// }, 4000);
-
-
-
-
-
 /*------------------------------------------------CODIGO CARLOS--------GALERIA--------------------------------------------*/
-    /* guia
+/* guia
 		let patio_taller  = 0;
 		let estacion1     = 1;
 		let estacion7     = 2;
@@ -337,443 +185,366 @@ function cambiarVistas(
 
 		*/
 
-    function galeriaCarlos( posicion ){
-      $(".modal_galeria_metro").css('display', 'block')
+function galeriaCarlos(posicion) {
+  $('.modal_galeria_metro').css('display', 'block');
 
-      /*---------------llamar JSON-------------*/
-      var UrlData = "https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?90009"
-      
-      let contenedor = $(".contenedor_infinito");
+  /*---------------llamar JSON-------------*/
+  var UrlData =
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?90009';
 
-      let num = 0;
-      
-      $.getJSON( UrlData, function(datos){
+  let contenedor = $('.contenedor_infinito');
 
-        console.log(datos[posicion].video3D)
-        /*----------video 3D------*/
-        let link = datos[posicion].video3D
-        $(".video3D").attr('src', `${ link }`);
+  let num = 0;
 
+  $.getJSON(UrlData, function (datos) {
+    // console.log(datos[posicion].video3D);
+    /*----------video 3D------*/
+    let link = datos[posicion].video3D;
+    $('.video3D').attr('src', `${link}`);
 
+    // console.log(datos);
+    //console.log(estacion1.fotos.foto[0])
 
-          console.log(datos)
-          //console.log(estacion1.fotos.foto[0])
+    for (let i = 0; i < datos[posicion].fotos.length; i++) {
+      let slider = `<div class="base_slider">
+                      <img src="${datos[posicion].fotos[i].foto}" class="imagen_slider">
+                    </div>`;
 
-            for( let i=0;  i < datos[posicion].fotos.length; i++ ){
-              
-              let slider = `<div class="base_slider">
-                      <img src="${ datos[posicion].fotos[i].foto }" class="imagen_slider">
-                    </div>`
+      contenedor.append(slider);
+    }
 
-                 
-              contenedor.append( slider );
-            }
+    /*--------slider------*/
+    let anchoBaseSlider = 1000;
 
-           
+    let anchoInfinito = datos[posicion].fotos.length * anchoBaseSlider;
+    let anchoBase = anchoInfinito / datos[posicion].fotos.length;
 
-      
-            /*--------slider------*/
-            let anchoBaseSlider = 1000;
+    contenedor.css('width', `${anchoInfinito}`);
+    $('.base_slider').css('width', `${anchoBase}`);
 
-            let anchoInfinito = datos[posicion].fotos.length * anchoBaseSlider
-            let anchoBase     = anchoInfinito / datos[posicion].fotos.length
+    $('.Fizquierda').click(function (event) {
+      console.log(datos[posicion].fotos.length);
 
-            contenedor.css('width', `${ anchoInfinito }`);
-            $(".base_slider").css('width', `${ anchoBase }`);
+      if (num >= 0 && num < datos[posicion].fotos.length) {
+        num += 1;
+        console.log(num);
+        $('.Fderecha').css('display', 'block');
 
-
-            
-            $(".Fizquierda").click(function(event) {
-              
-              console.log(datos[posicion].fotos.length)
-
-              if( (num >= 0) && (num < datos[posicion].fotos.length) ){
-
-                num += 1;
-                console.log(num)
-                $(".Fderecha").css('display', 'block');
-
-                contenedor.css('transform', `translate3d( -${ anchoBaseSlider * num }px, 0px, 0px)`);
-              }
-
-
-            
-              if(num === datos[posicion].fotos.length ){
-
-                $(".Fizquierda").css('display', 'none');
-                
-                setTimeout(function(){
-                
-                  $(".contenedor_iframe").css('z-index', '2');
-                }, 1500)
-
-
-
-                $(".logo_360").css('display', 'block');
-                $(".contenedor_slider").css('z-index', '2');
-              }
-          
-            });
-
-
-        
-            $(".Fderecha").click(function(event) {
-              
-              
-              if( (num >= 1) && (num <= datos[posicion].fotos.length) )  {
-
-                num -= 1;
-                console.log(num)
-                $(".Fizquierda").css('display', 'block');
-                $(".contenedor_slider").css('z-index', '2');
-                $(".contenedor_iframe").css('z-index', '1');
-
-                $(".logo_360").css('display', 'none');
-
-                contenedor.css('transform', `translate3d( -${ anchoBaseSlider * num }px, 0px, 0px)`);
-
-              }
-
-              if(num === 0){
-
-                $(".Fderecha").css('display', 'none');
-                
-              }
-              
-
-            });
-
-
-
-
-            /*-----video normal------*/
-            let video = datos[posicion].video;
-            
-
-
-
-            /*-----Eventos botones-----*/
-            $(".icono_foto").click(function(event) {
-
-              $(".icono_foto").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg');
-              $(".icono_foto").css('transform', 'scale(0.9)');
-              
-              $(".icono_video").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg');
-              $(".icono_video").css('transform', 'scale(1.0)');
-
-              $("#contenedor_video1").css('display', 'none');
-              $(".contenedor_slider").css('display', 'block');
-              $("#video_normal").css('display', 'none');
-
-              /*---quitar VIDEO--*/
-              $("#video_metro_normal").attr('src', "" );    
-            });
-
-
-
-            $(".icono_video").click(function(event) {
-
-              /*---poner VIDEO normal--*/
-              $("#video_metro_normal").attr('src', `${ video }` );
-
-
-              $(".icono_video").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-NARANJA.svg');
-              $(".icono_video").css('transform', 'scale(0.9)');
-
-              $(".icono_foto").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-GRIS.svg');
-              $(".icono_foto").css('transform', 'scale(1.0)');
-
-              $("#contenedor_video1").css('display', 'none');
-              $(".contenedor_slider").css('display', 'none');
-              $("#video_normal").css('display', 'block');
-
-              $(".logo_360").css('display', 'none');
-            });
-
-
-            let imagen360 =  datos[posicion].foto360 
-            // 360 viewer
-            setTimeout(function(){
-
-              var PSV = new PhotoSphereViewer({
-                  panorama:  `${ imagen360 }`,
-                  container: 'photosphere',
-                  loading_img: 'Aquí va la URL del icono',
-                  navbar: 'autorotate zoom download fullscreen',
-                  caption: 'EL TIEMPO Casa Editorial 2023 - Maquetación Carlos Bustos',
-                  default_fov: 100,
-                  mousewheel: true,
-                  size: {
-                    height: 562
-                  }
-                });
-
-            }, 500)
-            
-
-        })
-
-      
-        /*----hover iconos flechas-----*/
-        $(".Fizquierda").hover(function() {
-          $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_next_hover.svg');
-        }, function() {
-          $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_next.svg');
-        });
-
-
-        $(".Fderecha").hover(function() {
-          $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/slider/fecha_back_hover.svg');
-        }, function() {
-          $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_back.svg');
-        });
-
-
-
-
-        /*---cerrar modal---*/
-        $(".cerrar_imagenes").click(function(event) {
-
-          let id = $(this).attr('id');
-          console.log( id ); 
-
-          if(id === "7"){
-
-            $(".contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo").css('display', 'none');
-
-
-            /*---conetenedor puertas----*/
-            $(".contenedor_titulo_metro").css('display', 'none');
-            $(".contenedor_puertas_abiertas, .contenedor_nota_metro").css('display', 'block');
-      
-          }else{
-
-            $(".modal_galeria_metro").css('display', 'none');
-
-         
-            $( ".base_slider").remove();
-            contenedor.css('transform', `translate3d( -0px, 0px, 0px)`);
-            num = 0;
-            $(".contenedor_iframe").css('z-index', '1');
-            $(".Fizquierda").css('display','block');
-            $('.Fderecha, .logo_360').css('display', 'none');
-  
-            console.log(num)
-  
-             /*------reiniciar contenedor----*/
-             $("div#contenedor_video1").css('display', 'block'),
-             $(".contenedor_slider, #video_normal").css('display', 'none');
-             $(".icono_video, .icono_foto").css('transform','scale(1)');
-             $(".icono_video, .icono_foto").css('transform','scale(1)');
-             $(".icono_video").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg');
-             $(".icono_foto").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-GRIS.svg');
-             /*------reiniciar contenedor----*/
-          
-            $(".pantalla_bloqueo").css('display', 'none');
-
-          }
-
-        });
+        contenedor.css(
+          'transform',
+          `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`
+        );
       }
 
-
-
-      /*------------------------------------------------FIN CODIGO CARLOS--------GALERIA--------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-       /*--------------------------------------------NOTAS INTERNAS NOV 23----------------------------------------*/
-
-      /*-----------ocultar secciones-----------*/
-     $(".contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro").css('display', 'none');
-
-
-
-      /*-----cerrar intre e inicio dle tren-----*/
-      $(".titulo_metro_bogota").click(function(event) {
-        
-        $(".contenedor_puertas_abiertas").css('display', 'none');
-        $(".contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro").css('display', 'block');
-
-      });
-
-
-
-
-      $(".texto_seccion_nota").hover(function() {
-          
-          let id = $(this).attr('id');
-          console.log( id );
-
-          
-          
-          $(".circulo_infor_seleccion").removeClass('prender_boton');
-          $(`#boton${id}`).addClass('prender_boton');
-
-
-          
-          $(`#boton${id}`).css('transform', 'scale(1.2)');
-
-      }, function() {
-        
-         let id = $(this).attr('id');
-        $(`#boton${id}`).css('transform', 'scale(1.0)');
-
-      });
-
-
-     $(".boton_cerrar_nota").click(function(event) {
-       
-        $(".contenedor_otrasNotas").css('display', 'block');
-        $(".contenedor_nota_metro").css('display', 'none');
-
-     });
-
-
-
-     $("#regresar_nota_principal").click(function(event) {
-       
-        $(".contenedor_otrasNotas").css('display', 'none');
-        $(".contenedor_nota_metro").css('display', 'block');
-
-     });
-
-
-
-     $(".icono_terminar_recorrido").click(function(event) {
-       
-        $(".alinear_izquierda").animate({ 'left' : '0'}, 400);
-        $(".alinear_derecha").animate({ 'left' : '0'}, 400);
-
-        $(".contenedor_nota_metro").css('z-index', '0');
-        num = 1;
-
-     });
-
-
-
-
-
-     /*--------------------------ANIMACION PUERTA--------------------------*/
-     let num = 1;
-    $(".alinear_izquierda, .alinear_derecha").click(function(event) {
-      
-      if(num == 0){
-
-        $(".alinear_izquierda").animate({ 'left' : '0'}, 400);
-        $(".alinear_derecha").animate({ 'left' : '0'}, 400);
-
-        setTimeout(function(){
-          $(".contenedor_nota_metro").css('z-index', '0');
-
-          $(".contenedor_titulo_metro").css('z-index', '0');
-
-
-          
-        }, 400)
-        
-
-        num = 1;
-          
-        
-      }else{
-
-
-        if( $(window).width() > 1600 )  {
-
-          $(".alinear_izquierda").animate({ 'left' : '-31%'}, 400);
-          $(".alinear_derecha").animate({ 'left' : '31%'}, 400);
-
-        }
-
-
-        if( ( $(window).width() < 1600 ) && ( $(window).width() > 1460 ) ){
-
-          $(".alinear_izquierda").animate({ 'left' : '-35%'}, 400);
-          $(".alinear_derecha").animate({ 'left' : '35%'}, 400);
-
-        }
-
-        if( $(window).width() < 1450 ){
-
-          $(".alinear_izquierda").animate({ 'left' : '-38%'}, 400);
-          $(".alinear_derecha").animate({ 'left' : '38%'}, 400);
-          
-        }
-
-        setTimeout(function(){
-          $(".contenedor_nota_metro").css('z-index', '3');
-
-          $(".contenedor_titulo_metro").css('z-index', '3');
-        }, 1000)
-        
-
-        num = 0;
+      if (num === datos[posicion].fotos.length) {
+        $('.Fizquierda').css('display', 'none');
+
+        setTimeout(function () {
+          $('.contenedor_iframe').css('z-index', '2');
+        }, 1500);
+
+        $('.logo_360').css('display', 'block');
+        $('.contenedor_slider').css('z-index', '2');
       }
-      
-
     });
 
+    $('.Fderecha').click(function (event) {
+      if (num >= 1 && num <= datos[posicion].fotos.length) {
+        num -= 1;
+        console.log(num);
+        $('.Fizquierda').css('display', 'block');
+        $('.contenedor_slider').css('z-index', '2');
+        $('.contenedor_iframe').css('z-index', '1');
 
+        $('.logo_360').css('display', 'none');
 
+        contenedor.css(
+          'transform',
+          `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`
+        );
+      }
 
-    $(".boton_regresar_creditos").hover(function() {
-        
-        $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/regresar_hover.svg');
-        $(this).css('transform', 'scale(1.2)');
-
-    }, function() {
-      
-        $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/btn-regresar.svg');
-        $(this).css('transform', 'scale(1.0)');
-
+      if (num === 0) {
+        $('.Fderecha').css('display', 'none');
+      }
     });
 
+    /*-----video normal------*/
+    let video = datos[posicion].video;
 
+    /*-----Eventos botones-----*/
+    $('.icono_foto').click(function (event) {
+      $('.icono_foto').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg'
+      );
+      $('.icono_foto').css('transform', 'scale(0.9)');
 
-     $(".icono_terminar_recorrido").hover(function() {
-        
-        $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido_hover.svg');
-        $(this).css('transform', 'scale(1.2)');
+      $('.icono_video').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg'
+      );
+      $('.icono_video').css('transform', 'scale(1.0)');
 
-    }, function() {
-      
-        $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido.svg');
-        $(this).css('transform', 'scale(1.0)');
+      $('#contenedor_video1').css('display', 'none');
+      $('.contenedor_slider').css('display', 'block');
+      $('#video_normal').css('display', 'none');
 
+      /*---quitar VIDEO--*/
+      $('#video_metro_normal').attr('src', '');
     });
 
+    $('.icono_video').click(function (event) {
+      /*---poner VIDEO normal--*/
+      $('#video_metro_normal').attr('src', `${video}`);
 
+      $('.icono_video').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-NARANJA.svg'
+      );
+      $('.icono_video').css('transform', 'scale(0.9)');
 
-     /*------------------------ANIMACION PRIMERA PANTALLA--------------------*/
-     $(".imagen_de_inicio_especial").click(function(event) {
-       
-       $(".imagen_de_inicio_especial").addClass('animacion_portada')
+      $('.icono_foto').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-GRIS.svg'
+      );
+      $('.icono_foto').css('transform', 'scale(1.0)');
 
+      $('#contenedor_video1').css('display', 'none');
+      $('.contenedor_slider').css('display', 'none');
+      $('#video_normal').css('display', 'block');
 
-       setTimeout(function(){
-        
-          $(".contenedor_entrada_especial").css('display', 'none');
-          $(".contenedor_puertas_abiertas").css('display', 'block');
+      $('.logo_360').css('display', 'none');
+    });
 
-       }, 1200)
+    let imagen360 = datos[posicion].foto360;
+    // 360 viewer
+    setTimeout(function () {
+      var PSV = new PhotoSphereViewer({
+        panorama: `${imagen360}`,
+        container: 'photosphere',
+        loading_img: 'Aquí va la URL del icono',
+        navbar: 'autorotate zoom download fullscreen',
+        caption: 'EL TIEMPO Casa Editorial 2023 - Maquetación Carlos Bustos',
+        default_fov: 100,
+        mousewheel: true,
+        size: {
+          height: 562,
+        },
+      });
+    }, 500);
+  });
 
-     });
+  /*----hover iconos flechas-----*/
+  $('.Fizquierda').hover(
+    function () {
+      $(this).attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_next_hover.svg'
+      );
+    },
+    function () {
+      $(this).attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_next.svg'
+      );
+    }
+  );
 
+  $('.Fderecha').hover(
+    function () {
+      $(this).attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/slider/fecha_back_hover.svg'
+      );
+    },
+    function () {
+      $(this).attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/slider/flecha_back.svg'
+      );
+    }
+  );
 
-     /*-----------------abrir nota principal------------------*/
- 
+  /*---cerrar modal---*/
+  $('.cerrar_imagenes').click(function (event) {
+    let id = $(this).attr('id');
+    if (id === '7') {
+      $(
+        '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo'
+      ).css('display', 'none');
 
-     
+      /*---conetenedor puertas----*/
+      $('.contenedor_titulo_metro').css('display', 'none');
+      $('.contenedor_puertas_abiertas, .contenedor_nota_metro').css(
+        'display',
+        'block'
+      );
+    } else {
+      $('.modal_galeria_metro').css('display', 'none');
 
+      $('.base_slider').remove();
+      contenedor.css('transform', `translate3d( -0px, 0px, 0px)`);
+      num = 0;
+      $('.contenedor_iframe').css('z-index', '1');
+      $('.Fizquierda').css('display', 'block');
+      $('.Fderecha, .logo_360').css('display', 'none');
 
+      console.log(num);
+
+      /*------reiniciar contenedor----*/
+      $('div#contenedor_video1').css('display', 'block'),
+        $('.contenedor_slider, #video_normal').css('display', 'none');
+      $('.icono_video, .icono_foto').css('transform', 'scale(1)');
+      $('.icono_video, .icono_foto').css('transform', 'scale(1)');
+      $('.icono_video').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg'
+      );
+      $('.icono_foto').attr(
+        'src',
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-GRIS.svg'
+      );
+      /*------reiniciar contenedor----*/
+
+      $('.pantalla_bloqueo').css('display', 'none');
+    }
+  });
+}
+
+/*------------------------------------------------FIN CODIGO CARLOS--------GALERIA--------------------------------------------*/
+
+/*--------------------------------------------NOTAS INTERNAS NOV 23----------------------------------------*/
+
+/*-----------ocultar secciones-----------*/
+$(
+  '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro'
+).css('display', 'none');
+
+/*-----cerrar intre e inicio dle tren-----*/
+$('.titulo_metro_bogota').click(function (event) {
+  $('.contenedor_puertas_abiertas').css('display', 'none');
+  $(
+    '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro'
+  ).css('display', 'block');
+});
+
+$('.texto_seccion_nota').hover(
+  function () {
+    let id = $(this).attr('id');
+    console.log(id);
+
+    $('.circulo_infor_seleccion').removeClass('prender_boton');
+    $(`#boton${id}`).addClass('prender_boton');
+
+    $(`#boton${id}`).css('transform', 'scale(1.2)');
+  },
+  function () {
+    let id = $(this).attr('id');
+    $(`#boton${id}`).css('transform', 'scale(1.0)');
+  }
+);
+
+$('.boton_cerrar_nota').click(function (event) {
+  $('.contenedor_otrasNotas').css('display', 'block');
+  $('.contenedor_nota_metro').css('display', 'none');
+});
+
+$('#regresar_nota_principal').click(function (event) {
+  $('.contenedor_otrasNotas').css('display', 'none');
+  $('.contenedor_nota_metro').css('display', 'block');
+});
+
+$('.icono_terminar_recorrido').click(function (event) {
+  $('.alinear_izquierda').animate({ left: '0' }, 400);
+  $('.alinear_derecha').animate({ left: '0' }, 400);
+
+  $('.contenedor_nota_metro').css('z-index', '0');
+  num = 1;
+});
+
+/*--------------------------ANIMACION PUERTA--------------------------*/
+let num = 1;
+$('.alinear_izquierda, .alinear_derecha').click(function (event) {
+  if (num == 0) {
+    $('.alinear_izquierda').animate({ left: '0' }, 400);
+    $('.alinear_derecha').animate({ left: '0' }, 400);
+
+    setTimeout(function () {
+      $('.contenedor_nota_metro').css('z-index', '0');
+
+      $('.contenedor_titulo_metro').css('z-index', '0');
+    }, 400);
+
+    num = 1;
+  } else {
+    if ($(window).width() > 1600) {
+      $('.alinear_izquierda').animate({ left: '-31%' }, 400);
+      $('.alinear_derecha').animate({ left: '31%' }, 400);
+    }
+
+    if ($(window).width() < 1600 && $(window).width() > 1460) {
+      $('.alinear_izquierda').animate({ left: '-35%' }, 400);
+      $('.alinear_derecha').animate({ left: '35%' }, 400);
+    }
+
+    if ($(window).width() < 1450) {
+      $('.alinear_izquierda').animate({ left: '-38%' }, 400);
+      $('.alinear_derecha').animate({ left: '38%' }, 400);
+    }
+
+    setTimeout(function () {
+      $('.contenedor_nota_metro').css('z-index', '3');
+
+      $('.contenedor_titulo_metro').css('z-index', '3');
+    }, 1000);
+
+    num = 0;
+  }
+});
+
+$('.boton_regresar_creditos').hover(
+  function () {
+    $(this).attr(
+      'src',
+      'https://www.eltiempo.com/infografias/2023/11/metro/img/regresar_hover.svg'
+    );
+    $(this).css('transform', 'scale(1.2)');
+  },
+  function () {
+    $(this).attr(
+      'src',
+      'https://www.eltiempo.com/infografias/2023/11/metro/img/btn-regresar.svg'
+    );
+    $(this).css('transform', 'scale(1.0)');
+  }
+);
+
+$('.icono_terminar_recorrido').hover(
+  function () {
+    $(this).attr(
+      'src',
+      'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido_hover.svg'
+    );
+    $(this).css('transform', 'scale(1.2)');
+  },
+  function () {
+    $(this).attr(
+      'src',
+      'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido.svg'
+    );
+    $(this).css('transform', 'scale(1.0)');
+  }
+);
+
+/*------------------------ANIMACION PRIMERA PANTALLA--------------------*/
+$('.imagen_de_inicio_especial').click(function (event) {
+  $('.imagen_de_inicio_especial').addClass('animacion_portada');
+
+  setTimeout(function () {
+    $('.contenedor_entrada_especial').css('display', 'none');
+    $('.contenedor_puertas_abiertas').css('display', 'block');
+  }, 1200);
+});
+
+/*-----------------abrir nota principal------------------*/
