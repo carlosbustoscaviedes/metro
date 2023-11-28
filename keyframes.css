@@ -27,69 +27,70 @@
 }
 
 @keyframes ubicacionIcono2 {
- 0% {transform: rotate(-20deg);
-}
+ 0% {
+  transform: rotate(-20deg);
+ }
 
-9% {
- /* Curva 1 */
- transform: rotate(-20deg);
-}
+ 9% {
+  /* Curva 1 */
+  transform: rotate(-20deg);
+ }
 
-19% {
- /* Curva 2 - Curva en medio bajando */
- transform: rotate(30deg);
-}
+ 19% {
+  /* Curva 2 - Curva en medio bajando */
+  transform: rotate(30deg);
+ }
 
-23% {
- /* Curva 3 - Curva en medio subiendo */
- transform: rotate(40deg);
-}
-
-
-30% {
- /* Curva 4 - Curva en medio subiendo */
- transform: rotate(10deg);
-}
-
-44% {
- /* Curva 4 - Continuación */
- transform: rotate(10deg);
-}
-
-55% {
- /* Curva 5 - Curva inclinada normal */
- transform: rotate(0deg);
-}
+ 23% {
+  /* Curva 3 - Curva en medio subiendo */
+  transform: rotate(40deg);
+ }
 
 
-63% {
- /* Curva 6 - inclinada subiendo */
- transform: rotate(-15deg);
-}
+ 30% {
+  /* Curva 4 - Curva en medio subiendo */
+  transform: rotate(10deg);
+ }
 
-68% {
- /*  Curva 7 - inclinada bajando  */
- transform: rotate(-5deg);
-}
+ 44% {
+  /* Curva 4 - Continuación */
+  transform: rotate(10deg);
+ }
 
-75% {
- /*  Curva 7 - cambio bajando  */
- transform: rotate(10deg);
-}
+ 55% {
+  /* Curva 5 - Curva inclinada normal */
+  transform: rotate(0deg);
+ }
 
-78% {
- /* C. 8 Ayuda Suave Bajando */
- transform: rotate(20deg);
-}
 
-86% {
- /* L. 8 Linea Recta abajo */
- transform: rotate(50deg);
-}
+ 63% {
+  /* Curva 6 - inclinada subiendo */
+  transform: rotate(-15deg);
+ }
 
-100% {
- transform: rotate(50deg);
-}
+ 68% {
+  /*  Curva 7 - inclinada bajando  */
+  transform: rotate(-5deg);
+ }
+
+ 75% {
+  /*  Curva 7 - cambio bajando  */
+  transform: rotate(10deg);
+ }
+
+ 78% {
+  /* C. 8 Ayuda Suave Bajando */
+  transform: rotate(20deg);
+ }
+
+ 86% {
+  /* L. 8 Linea Recta abajo */
+  transform: rotate(50deg);
+ }
+
+ 100% {
+  transform: rotate(50deg);
+ }
 }
 
 @keyframes ubicacionIcono2Reverse {
@@ -744,7 +745,7 @@
  }
 
  100% {
-  translate: -78.5% -6%;
+  translate: -81.5% -6%;
  }
 }
 
