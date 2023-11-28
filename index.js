@@ -200,7 +200,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?90087';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?900842347';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -238,12 +238,10 @@ function galeriaCarlos(posicion) {
       if (num >= 0 && num < datos[posicion].fotos.length) {
         num += 1;
         console.log(num);
+        
         $('.Fderecha').css('display', 'block');
 
-        contenedor.css(
-          'transform',
-          `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`
-        );
+        contenedor.css( 'transform', `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`);
       }
 
       if (num === datos[posicion].fotos.length) {
