@@ -12,15 +12,19 @@ const tamanoMapaTotal = document.getElementById('tamanoMapaTotal');
 /*-----carlos---*/
 let posicion = 0;
 /*-----carlos---*/
+
+
 window.onload = galeriaCarlos(0);
 
 const estaciones = {
   estacion1: 'patio',
   estacion2: 'estacion1',
   estacion3: 'estacion7',
-  estacion4: 'estacion13',
-  estacion5: 'estacion16',
-  estacion6: 'colaManiobras',
+  estacion4: '',
+  estacion5: 'estacion13',
+  estacion6: '',
+  estacion7: 'estacion16',
+  estacion8: 'colaManiobras',
 };
 
 let puntosMetros = document.querySelectorAll('.puntos_reset');
@@ -50,11 +54,11 @@ const contenedorSvgMetro = document.getElementById('contenedorSvgMetro');
 /*======================Final SVG AnimationMotion========================*/
 
 async function IrAbajo() {
-  numeroScroll == 8 ? (numeroScroll = 8) : numeroScroll++;
+  numeroScroll == 9 ? (numeroScroll = 9) : numeroScroll++;
   // numeroScroll == 8 && MenuUbicaciones.classList.add('show');
   tamanoMapaTotal.classList.remove(`ubicacion${numeroScroll}`);
   tamanoMapaTotal.classList.remove('reverseAnimation');
-  tamanoMapaTotal.classList.add(`ubicacion${numeroScroll + 1}`);
+  tamanoMapaTotal.classList.add(`ubicacion${numeroScroll}`);
   tamanoMapaTotal.style.animationName = `ubicacionMapa${numeroScroll}`;
 
   document.documentElement.style.setProperty(
@@ -75,7 +79,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   // Renderizar todo el svg para que cargue el camino y se vea una animación.
   contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${
     numeroScroll - 1
-  }.png"
+  }.png?et09281201"
   x="-12"
   y="-8"
   id="IconoMetros"
@@ -102,12 +106,15 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
     document
       .querySelector('#contenedorSvgMetro')
       .querySelector('image')
-      .setAttribute('href', `./pngAnimation/fin-trazo-${numeroScroll - 1}.png`);
+      .setAttribute(
+        'href',
+        `./pngAnimation/fin-trazo-${numeroScroll - 1}.png?et09281201`
+      );
   }
 
   let tiempoDuracion = `${pathDuration[`path${numeroScroll - 1}`]}000`;
 
-  if (numeroScroll <= 6) {
+  if (numeroScroll <= 8) {
     setTimeout(() => {
       // console.log(document.querySelector('[data-icono="icono"]'));
       setHref();
@@ -121,23 +128,26 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       //   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
       //   );
       $('.modal_galeria_metro').css('display', 'block'),
-      
-        galeriaCarlos(numeroScroll - 1),
+        galeriaCarlos(numeroScroll - 1);
+      if (numeroScroll == 4 || numeroScroll == 6) {
+        $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'none');
+        document.getElementById('mapaSolo').classList.add('active');
+      } else {
         $('.pantalla_bloqueo').css('display', 'block');
+        document.getElementById('mapaSolo').classList.remove('active');
+      }
 
       //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
       cambiarColorParadas();
     }, tiempoDuracion);
   }
 
-
-
-  console.log(numeroScroll)
+  console.log(numeroScroll);
   //* -> Para una parada anterior
-  if (numeroScroll == 6) {
-    //* -> Para una parada Despues
-    // if (numeroScroll == 7) {
-    $('.cerrar_imagenes').attr('id', '7');
+  // if (numeroScroll == 6) {
+  //* -> Para una parada Despues
+  if (numeroScroll == 8) {
+    $('.cerrar_imagenes').attr('id', '8');
   }
 
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
@@ -154,6 +164,8 @@ document.addEventListener('click', (e) => {
   if (e.target.matches('.cerrar_imagenes')) {
     unpauseAnimationsSVG();
     IrAbajo();
+
+    document.getElementById('mapaSolo').classList.remove('active');
   }
 });
 
@@ -196,11 +208,12 @@ const pathDuration = {
 
 function galeriaCarlos(posicion) {
   $('.modal_galeria_metro').css('display', 'block');
-  
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?900842347';
+
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?et09281201';
+
 
   let contenedor = $('.contenedor_infinito');
 
@@ -225,13 +238,35 @@ function galeriaCarlos(posicion) {
 
     /*--------slider------*/
     let anchoBaseSlider = 1000;
+    let anchoBaseSliderMobile = 350;
 
+    /*----desktop----*/
     let anchoInfinito = datos[posicion].fotos.length * anchoBaseSlider;
     let anchoBase = anchoInfinito / datos[posicion].fotos.length;
 
-    contenedor.css('width', `${anchoInfinito}`);
-    $('.base_slider').css('width', `${anchoBase}`);
 
+    /*----mobile---*/
+    let anchoInfinitoM = datos[posicion].fotos.length * anchoBaseSliderMobile;
+    let anchoBaseM     = anchoInfinitoM / datos[posicion].fotos.length;
+
+
+
+    if( $(window).width() > 650 ){
+
+      contenedor.css('width', `${anchoInfinito}`);
+      $('.base_slider').css('width', `${anchoBase}`);
+
+    }else{
+
+      contenedor.css('width', `${anchoInfinitoM}`);
+      $('.base_slider').css('width', `${anchoBaseM}`);
+
+    }
+   
+
+    
+    
+    
     $('.Fizquierda').click(function (event) {
       console.log(datos[posicion].fotos.length);
 
@@ -241,32 +276,42 @@ function galeriaCarlos(posicion) {
         
         $('.Fderecha').css('display', 'block');
 
-        contenedor.css( 'transform', `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`);
+        if( $(window).width() > 650){
+
+          contenedor.css( 'transform', `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`);
+        }else{
+          
+          contenedor.css( 'transform', `translate3d( -${anchoBaseSliderMobile * num}px, 0px, 0px)`);
+        }
+        
       }
 
+
       if (num === datos[posicion].fotos.length) {
+
         $('.Fizquierda').css('display', 'none');
 
-
         /*--------MOSTRAR IMAGEN 360-------*/
-         console.log(numeroScroll);
-          if( numeroScroll ){
-
-            $("#imagen_iframe_1, #imagen_iframe_2, #imagen_iframe_3, #imagen_iframe_4, #imagen_iframe_5, #imagen_iframe_6, #imagen_iframe_7").css('display', 'none');
-            $(`#imagen_iframe_${numeroScroll}`).css('display', 'block')
-          
-          }
+        console.log(numeroScroll);
+        if (numeroScroll) {
+          $(
+            '#imagen_iframe_1, #imagen_iframe_2, #imagen_iframe_3, #imagen_iframe_4, #imagen_iframe_5, #imagen_iframe_6, #imagen_iframe_7'
+          ).css('display', 'none');
+          $(`#imagen_iframe_${numeroScroll}`).css('display', 'block');
+        }
         /*--------FIN MOSTRAR IMAGEN 360-------*/
 
         setTimeout(function () {
           $('.contenedor_iframe').css('z-index', '2');
-          
         }, 1500);
 
         $('.logo_360').css('display', 'block');
         $('.contenedor_slider').css('z-index', '2');
       }
     });
+
+
+
 
     $('.Fderecha').click(function (event) {
       if (num >= 1 && num <= datos[posicion].fotos.length) {
@@ -277,11 +322,20 @@ function galeriaCarlos(posicion) {
         $('.contenedor_iframe').css('z-index', '1');
 
         $('.logo_360').css('display', 'none');
+        
 
-        contenedor.css(
-          'transform',
-          `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`
-        );
+        if( $(window).width() > 650 ){
+
+          contenedor.css( 'transform', `translate3d( -${anchoBaseSlider * num}px, 0px, 0px)`);
+
+        }else{
+
+          contenedor.css( 'transform', `translate3d( -${anchoBaseSliderMobile * num}px, 0px, 0px)`);
+
+        }
+        
+      
+      
       }
 
       if (num === 0) {
@@ -294,10 +348,14 @@ function galeriaCarlos(posicion) {
 
     /*-----Eventos botones-----*/
     $('.icono_foto').click(function (event) {
-      $('.icono_foto').attr(
-        'src',
-        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg'
-      );
+
+      if( $(window).width() < 650 ){
+
+        $(".base_controles_slider").css('display', 'block');
+     
+      } 
+
+      $('.icono_foto').attr( 'src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg');
       $('.icono_foto').css('transform', 'scale(0.9)');
 
       $('.icono_video').attr(
@@ -315,6 +373,13 @@ function galeriaCarlos(posicion) {
     });
 
     $('.icono_video').click(function (event) {
+
+      if( $(window).width() < 650 ){
+
+        $(".base_controles_slider").css('display', 'none');
+
+      } 
+
       /*---poner VIDEO normal--*/
       $('#video_metro_normal').attr('src', `${video}`);
 
@@ -357,10 +422,7 @@ function galeriaCarlos(posicion) {
     }, 500);
 
     */
-
   });
-
-
 
   /*----hover iconos flechas-----*/
   $('.Fizquierda').hover(
@@ -396,18 +458,24 @@ function galeriaCarlos(posicion) {
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
     let id = $(this).attr('id');
-    if (id === '7') {
+    if (id === '8') {
       $(
         '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo'
       ).css('display', 'none');
 
       /*---conetenedor puertas----*/
       $('.contenedor_titulo_metro').css('display', 'none');
-      $('.contenedor_puertas_abiertas, .contenedor_nota_metro').css(
-        'display',
-        'block'
-      );
-    } else {
+      $('.contenedor_puertas_abiertas, .contenedor_nota_metro').css('display','block');
+
+    
+    
+      /*------esconder_puertas------*/
+      $(".alinear_derecha, .alinear_izquierda, .cerrar_imagenes").css('display', 'none');
+
+    
+  
+  
+  } else {
       $('.modal_galeria_metro').css('display', 'none');
 
       $('.base_slider').remove();
@@ -475,7 +543,7 @@ $('.texto_seccion_nota').hover(
 $('.boton_cerrar_nota').click(function (event) {
   $('.base_notas').css('display', 'block');
 
-  $("#base_notas").css('display', 'block');
+  $('#base_notas').css('display', 'block');
   $('.contenedor_nota_metro').css('display', 'none');
 });
 
@@ -492,17 +560,19 @@ $('.icono_terminar_recorrido').click(function (event) {
   num = 1;
 });
 
-
-
 /*--------------------------ANIMACION PUERTA--------------------------*/
 let num = 1;
 $('.alinear_izquierda, .alinear_derecha').click(function (event) {
+  
   if (num == 0) {
     $('.alinear_izquierda').animate({ left: '0' }, 400);
     $('.alinear_derecha').animate({ left: '0' }, 400);
 
     setTimeout(function () {
       $('.contenedor_nota_metro').css('z-index', '0');
+
+      
+      $(".contenedor_puertas").css('z-index', '0')
 
       $('.contenedor_titulo_metro').css('z-index', '0');
     }, 400);
@@ -524,8 +594,17 @@ $('.alinear_izquierda, .alinear_derecha').click(function (event) {
       $('.alinear_derecha').animate({ left: '38%' }, 400);
     }
 
+    if( $(window).width() < 650 ){
+      
+      $('.alinear_izquierda').animate({ left: '-60%' }, 400);
+      $('.alinear_derecha').animate({ left: '60%' }, 400);
+
+    }
+
     setTimeout(function () {
       $('.contenedor_nota_metro').css('z-index', '3');
+      
+      $(".contenedor_puertas").css('z-index', '2')
 
       $('.contenedor_titulo_metro').css('z-index', '3');
     }, 1000);
@@ -534,6 +613,9 @@ $('.alinear_izquierda, .alinear_derecha').click(function (event) {
   }
 });
 
+
+
+/*-------regresar creditos-----*/
 $('.boton_regresar_creditos').hover(
   function () {
     $(this).attr(
@@ -568,21 +650,10 @@ $('.icono_terminar_recorrido').hover(
   }
 );
 
-
-
-
-
 /*----volver a Nota principal-----------*/
-$(".boton_regresar_creditos").click(function (event) {
-
+$('.boton_regresar_creditos').click(function (event) {
   $('#base_notas').css('display', 'none');
-
 });
-
-
-
-
-
 
 /*------------------------ANIMACION PRIMERA PANTALLA--------------------*/
 $('.imagen_de_inicio_especial').click(function (event) {
@@ -596,27 +667,13 @@ $('.imagen_de_inicio_especial').click(function (event) {
 
 /*-----------------abrir nota principal------------------*/
 
-
-
-
-
-
-
-
-
-
-
 /*----------------------VER CREDITOS---------------------*/
-$(".texto_creditos_metro").click(function(event) {
-
-  $("#base_notas").css('display', 'none');
-  $("#base_creditos").css('display', 'block');
+$('.texto_creditos_metro').click(function (event) {
+  $('#base_notas').css('display', 'none');
+  $('#base_creditos').css('display', 'block');
 });
 
-
-$("#regresar_a_otras_notas").click(function(event) {
-
-  $("#base_notas").css('display', 'block');
-  $("#base_creditos").css('display', 'none');
-
+$('#regresar_a_otras_notas').click(function (event) {
+  $('#base_notas').css('display', 'block');
+  $('#base_creditos').css('display', 'none');
 });
