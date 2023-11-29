@@ -70,6 +70,8 @@ async function IrAbajo() {
   templateSVGRutas();
 
   console.log(numeroScroll, ' Dentro de IrAbajo Despues');
+
+
 }
 function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   document.documentElement.style.setProperty(
@@ -126,6 +128,37 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       //   $('.pantalla_bloqueo').css('display', 'block')
 
       //   /*---document.querySelectorAll('.modalCarlos')[numeroScroll - 2].style.display = 'flex'---*/
+
+
+
+      /*------letreros mobile----------*/
+      if(numeroScroll == 2){
+        
+        $(".texto_paradas1").text('ESTACIÓN 1');
+        $(".texto_paradas2").text('Av. Villavicencio / Carrera 94');
+      }
+
+      if(numeroScroll == 3){
+        
+        $(".texto_paradas1").text('ESTACIÓN 7');
+        $(".texto_paradas2").text('Av. Primero de Mayo / Av. 68');
+      }
+
+
+      if(numeroScroll == 5){
+        
+        $(".texto_paradas1").text('ESTACIÓN 13');
+        $(".texto_paradas2").text('Av. Caracas / Calle 26');
+      }
+
+
+      if(numeroScroll == 7){
+        
+        $(".texto_paradas1").text('ESTACIÓN 16');
+        $(".texto_paradas2").text('Av.Caracas/ Calle 26');
+      }
+
+
       //   );
       $('.modal_galeria_metro').css('display', 'block'),
         galeriaCarlos(numeroScroll - 1);
@@ -148,6 +181,8 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   //* -> Para una parada Despues
   if (numeroScroll == 8) {
     $('.cerrar_imagenes').attr('id', '8');
+
+    $("#8").css('display', 'none');
   }
 
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
@@ -185,6 +220,8 @@ const pathMetro = {
   path7: 'M1753.1,118l6.5-25.4',
 };
 
+
+/*
 const pathDuration = {
   path1: '6',
   path2: '15',
@@ -194,6 +231,21 @@ const pathDuration = {
   path6: '5',
   path7: '5',
 };
+*/
+
+
+const pathDuration = {
+  path1: '2',
+  path2: '2',
+  path3: '2',
+  path4: '2',
+  path5: '2',
+  path6: '2',
+  path7: '2',
+};
+
+
+
 
 /*------------------------------------------------CODIGO CARLOS--------GALERIA--------------------------------------------*/
 /* guia
@@ -212,7 +264,7 @@ function galeriaCarlos(posicion) {
   /*---------------llamar JSON-------------*/
   var UrlData =
 
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?et09281201';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?et2342';
 
 
   let contenedor = $('.contenedor_infinito');
@@ -455,6 +507,9 @@ function galeriaCarlos(posicion) {
     }
   );
 
+
+
+
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
 
@@ -475,10 +530,13 @@ function galeriaCarlos(posicion) {
       $('.contenedor_titulo_metro').css('display', 'none');
       $('.contenedor_puertas_abiertas, .contenedor_nota_metro').css('display','block');
 
+      $(".contenedor_indicador_paradas, .indicador_paradas").css('display', 'none');
+
     
     
-      /*------esconder_puertas------*/
+      /*------esconder_puertas------
       $(".alinear_derecha, .alinear_izquierda, .cerrar_imagenes").css('display', 'none');
+      */
 
     
   
@@ -524,13 +582,27 @@ $(
   '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro'
 ).css('display', 'none');
 
-/*-----cerrar intre e inicio dle tren-----*/
+/*-----cerrar intr0 e inicio dle tren-----*/
 $('.titulo_metro_bogota').click(function (event) {
+
+  /*--mobile--*/
+  if( $(window).width() < 650 ){
+
+    $(".indicador_paradas, .contenedor_indicador_parada").css('display', 'block');
+    $(".base_mapa_ruta").css('display', 'none');
+    $(".contenedor_indicador_paradas").css('display', 'block');
+  
+  }else{
+    $(".base_mapa_ruta").css('display', 'block');
+  }
+
   $('.contenedor_puertas_abiertas').css('display', 'none');
-  $(
-    '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro'
-  ).css('display', 'block');
+  $('.contenedorVistaMapa,  .estaciones_metro, .modal_galeria_metro').css('display', 'block');
+
 });
+
+
+
 
 $('.texto_seccion_nota').hover(
   function () {
@@ -560,12 +632,41 @@ $('#regresar_nota_principal').click(function (event) {
   $('.contenedor_nota_metro').css('display', 'block');
 });
 
+
+
+
 $('.icono_terminar_recorrido').click(function (event) {
+
   $('.alinear_izquierda').animate({ left: '0' }, 400);
   $('.alinear_derecha').animate({ left: '0' }, 400);
 
+
   $('.contenedor_nota_metro').css('z-index', '0');
+
+
+  $(".imagen_de_inicio_especial").removeClass('animacion_portada');
+
+
+  setTimeout(function(){
+
+    $(".contenedor_entrada_especial").css('display', 'block');
+    $(".contenedor_entrada_especial").css('transform', 'scale(3.5) translateY(90px)');
+
+    $(".alinear_izquierda, .alinear_derecha, #colocar_scroll").css('display', 'none');
+
+   
+  }, 1200)
+
+  setTimeout(function(){
+    $(".contenedor_entrada_especial").addClass('animacion_portada_cierre')
+  }, 1500)
+  
+
+  
+
+
   num = 1;
+
 });
 
 /*--------------------------ANIMACION PUERTA--------------------------*/
@@ -578,8 +679,6 @@ $('.alinear_izquierda, .alinear_derecha').click(function (event) {
 
     setTimeout(function () {
       $('.contenedor_nota_metro').css('z-index', '0');
-
-      
       $(".contenedor_puertas").css('z-index', '0')
 
       $('.contenedor_titulo_metro').css('z-index', '0');
@@ -653,14 +752,55 @@ $('.boton_regresar_creditos').click(function (event) {
 
 /*------------------------ANIMACION PRIMERA PANTALLA--------------------*/
 $('.imagen_de_inicio_especial').click(function (event) {
+
   $('.imagen_de_inicio_especial').addClass('animacion_portada');
+
 
   setTimeout(function () {
 
     $('.contenedor_entrada_especial').css('display', 'none');
-
     $('.contenedor_puertas_abiertas').css('display', 'block');
+
   }, 1200);
+
+
+
+  setTimeout(function(){
+
+    if ($(window).width() > 1600) {
+      $('.alinear_izquierda').animate({ left: '-31%' }, 400);
+      $('.alinear_derecha').animate({ left: '31%' }, 400);
+    }
+
+    if ($(window).width() < 1600 && $(window).width() > 1460) {
+      $('.alinear_izquierda').animate({ left: '-35%' }, 400);
+      $('.alinear_derecha').animate({ left: '35%' }, 400);
+    }
+
+    if ($(window).width() < 1450) {
+      $('.alinear_izquierda').animate({ left: '-38%' }, 400);
+      $('.alinear_derecha').animate({ left: '38%' }, 400);
+    }
+
+    if( $(window).width() < 650 ){
+      
+      $('.alinear_izquierda').animate({ left: '-60%' }, 400);
+      $('.alinear_derecha').animate({ left: '60%' }, 400);
+
+    }
+
+
+  }, 1500)
+
+
+  setTimeout(function () {
+    $('.contenedor_nota_metro').css('z-index', '3');
+    
+    $(".contenedor_puertas").css('z-index', '2')
+
+    $('.contenedor_titulo_metro').css('z-index', '3');
+  
+  }, 1700);
 
 });
 
@@ -700,7 +840,7 @@ $(".icono_esconder_menu").click(function (event) {
 
     $('.contenedor_indicador_paradas').animate({ right: '0%' }, 400);
 
-    $(".icono_esconder_menu").attr('src', './img/flecha_esconder_menu.png');
+    $(".icono_esconder_menu").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/flecha_esconder_menu.png');
     numeroMenu = 1;
 
     $(".icono_esconder_menu").css('margin-left', '9px');
@@ -709,7 +849,7 @@ $(".icono_esconder_menu").click(function (event) {
 
     $('.contenedor_indicador_paradas').animate({ right: '-50%' }, 400);
 
-    $(".icono_esconder_menu").attr('src', './img/flecha_sacar_menu.png');
+    $(".icono_esconder_menu").attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/flecha_sacar_menu.png');
 
     $(".icono_esconder_menu").css('margin-left', '6px');
 
