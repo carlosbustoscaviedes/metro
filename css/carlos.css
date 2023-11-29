@@ -1270,6 +1270,39 @@ p.texto_creditos_metro {
 
 @media(max-width: 650px){
 
+
+    .contenedor_indicador_paradas {
+        width: 60%;
+        display: table;
+        position: fixed;
+        background-color: #fff;
+        padding: 20px 16px;
+        box-sizing: border-box;
+        right: -50%;
+        top: 34%;
+        border: 1px solid red;
+        z-index: 1;
+    }
+
+
+    .icono_esconder_menu {
+        width: 17px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    
+
+    .boton_sacar_indicador {
+        width: 37px;
+        height: 37px;
+        background-color: white;
+        border-radius: 100%;
+        position: absolute;
+        top: 41%;
+        left: -21px;
+    }
+
+
     .texto_paradas1 {
         font-family: "ardoise-narrow-std";
         color: #FC6E53;
@@ -1279,6 +1312,7 @@ p.texto_creditos_metro {
         padding: 10px 0px 0px 0px;
         border-bottom: 1px solid #EDEEE6;
         display: inline-block;
+        font-weight: bold;
     }
 
 
@@ -1533,6 +1567,7 @@ p.texto_creditos_metro {
 
     .modal_galeria_metro {
         top: 24%;
+        z-index: 2;
     }
 
 

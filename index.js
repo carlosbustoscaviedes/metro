@@ -457,6 +457,14 @@ function galeriaCarlos(posicion) {
 
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
+
+    if( $(window).width() < 650 ){
+
+      $(".base_controles_slider").css('display', 'none');
+
+    }
+
+
     let id = $(this).attr('id');
     if (id === '8') {
       $(
@@ -618,34 +626,22 @@ $('.alinear_izquierda, .alinear_derecha').click(function (event) {
 /*-------regresar creditos-----*/
 $('.boton_regresar_creditos').hover(
   function () {
-    $(this).attr(
-      'src',
-      'https://www.eltiempo.com/infografias/2023/11/metro/img/regresar_hover.svg'
-    );
+    $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/regresar_hover.svg');
     $(this).css('transform', 'scale(1.2)');
   },
   function () {
-    $(this).attr(
-      'src',
-      'https://www.eltiempo.com/infografias/2023/11/metro/img/btn-regresar.svg'
-    );
+    $(this).attr('src','https://www.eltiempo.com/infografias/2023/11/metro/img/btn-regresar.svg');
     $(this).css('transform', 'scale(1.0)');
   }
 );
 
 $('.icono_terminar_recorrido').hover(
   function () {
-    $(this).attr(
-      'src',
-      'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido_hover.svg'
-    );
+    $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido_hover.svg');
     $(this).css('transform', 'scale(1.2)');
   },
   function () {
-    $(this).attr(
-      'src',
-      'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido.svg'
-    );
+    $(this).attr('src', 'https://www.eltiempo.com/infografias/2023/11/metro/img/terminar_recorrido.svg');
     $(this).css('transform', 'scale(1.0)');
   }
 );
@@ -660,20 +656,68 @@ $('.imagen_de_inicio_especial').click(function (event) {
   $('.imagen_de_inicio_especial').addClass('animacion_portada');
 
   setTimeout(function () {
+
     $('.contenedor_entrada_especial').css('display', 'none');
+
     $('.contenedor_puertas_abiertas').css('display', 'block');
   }, 1200);
+
 });
 
 /*-----------------abrir nota principal------------------*/
 
 /*----------------------VER CREDITOS---------------------*/
 $('.texto_creditos_metro').click(function (event) {
+
   $('#base_notas').css('display', 'none');
   $('#base_creditos').css('display', 'block');
+
 });
 
 $('#regresar_a_otras_notas').click(function (event) {
+
   $('#base_notas').css('display', 'block');
   $('#base_creditos').css('display', 'none');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------desplegar menu estaciones MOBILE---------------*/
+let numeroMenu = 0;
+$(".icono_esconder_menu").click(function (event) {
+
+  if(numeroMenu == 0){
+
+    $('.contenedor_indicador_paradas').animate({ right: '0%' }, 400);
+
+    $(".icono_esconder_menu").attr('src', './img/flecha_esconder_menu.png');
+    numeroMenu = 1;
+
+    $(".icono_esconder_menu").css('margin-left', '9px');
+  
+  }else{
+
+    $('.contenedor_indicador_paradas').animate({ right: '-50%' }, 400);
+
+    $(".icono_esconder_menu").attr('src', './img/flecha_sacar_menu.png');
+
+    $(".icono_esconder_menu").css('margin-left', '6px');
+
+   
+
+    numeroMenu = 0;
+
+  }
+
+  
 });
