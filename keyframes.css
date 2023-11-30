@@ -12,6 +12,20 @@
  }
 }
 
+@keyframes ubicacionMapa2Mobile {
+ 0% {
+  translate: -4% -11%;
+ }
+
+ 50% {
+  translate: -11% -15%;
+ }
+
+ 100% {
+  translate: -17% -19%;
+ }
+}
+
 @keyframes ubicacionMapa2Reverse {
  0% {
   translate: 0% -20%;
@@ -184,6 +198,24 @@
 
  100% {
   translate: -42.5% -57%;
+ }
+}
+
+@keyframes ubicacionMapa3Mobile {
+ 0% {
+  translate: -17% -19%;
+ }
+
+ 37% {
+  translate: -26% -43%;
+ }
+
+ 75% {
+  translate: -39% -42%;
+ }
+
+ 100% {
+  translate: -45.5% -51%;
  }
 }
 
@@ -382,6 +414,20 @@
  }
 }
 
+@keyframes ubicacionMapa4Mobile {
+ 0% {
+  translate: -45.5% -51%;
+ }
+
+ 37% {
+  translate: -55.5% -63%;
+ }
+
+ 100% {
+  translate: -71.5% -63%;
+ }
+}
+
 @keyframes ubicacionMapa4Reverse {
  0% {
   translate: -42.5% -57%;
@@ -546,6 +592,16 @@
  }
 }
 
+@keyframes ubicacionMapa5Mobile {
+ 0% {
+  translate: -71.5% -63%;
+ }
+
+ 100% {
+  translate: -79.5% -48%;
+ }
+}
+
 @keyframes ubicacionMapa5Reverse {
  0% {
   translate: -67.5% -72%;
@@ -610,6 +666,16 @@
  }
 }
 
+@keyframes ubicacionMapa6Mobile {
+ 0% {
+  translate: -79.5% -48%;
+ }
+
+ 100% {
+  translate: -85% -11%;
+ }
+}
+
 @keyframes ubicacionMapa6Reverse {
  0% {
   translate: -75.5% -50%;
@@ -669,6 +735,16 @@
 
  100% {
   translate: -81.5% -5%;
+ }
+}
+
+@keyframes ubicacionMapa7Mobile {
+ 0% {
+  translate: -85% -11%;
+ }
+
+ 100% {
+  translate: -87% -2%;
  }
 }
 
@@ -748,6 +824,18 @@
   translate: -81.5% -6%;
  }
 }
+
+@keyframes ubicacionMapa8Mobile {
+ 0% {
+  translate: -87% -2%;
+ }
+
+ 100% {
+  translate: -87% 0%;
+ }
+}
+
+
 
 @keyframes ubicacionMapa8Reverse {
  0% {
