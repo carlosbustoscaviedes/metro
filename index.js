@@ -26,14 +26,36 @@ const estaciones = {
   estacion7: 'estacion16',
   estacion8: 'colaManiobras',
 };
+const estacionesMobile = {
+  estacion1: 'parada-1',
+  estacion2: 'parada-2',
+  estacion3: 'parada-3',
+  estacion4: '',
+  estacion5: 'parada-4',
+  estacion6: '',
+  estacion7: 'parada-5',
+  estacion8: 'parada-6',
+};
 
 let puntosMetros = document.querySelectorAll('.puntos_reset');
 
 function cambiarColorParadas(params) {
-  puntosMetros.forEach((e) => e.classList.remove('st5'));
-  document
-    .getElementById(estaciones[`estacion${numeroScroll}`])
-    .classList.add('st5');
+  if (mediaQuery.matches) {
+    puntosMetros.forEach((e) => e.classList.remove('st5'));
+    document
+      .getElementById(estaciones[`estacion${numeroScroll}`])
+      .classList.add('st5');
+  } else {
+    document
+      .querySelectorAll('#Circulos path')
+      .forEach((e) => e.classList.remove('st4_m'));
+    document
+      .querySelectorAll('#Circulos path')
+      .forEach((e) => e.classList.add('st5_m'));
+    document
+      .getElementById(estacionesMobile[`estacion${numeroScroll}`])
+      .classList.add('st4_m');
+  }
 }
 
 /*===============================================
