@@ -23,7 +23,10 @@ const estaciones = {
   estacion6: 'colaManiobras',
 };
 
+ 
+
 let puntosMetros = document.querySelectorAll('.puntos_reset');
+
 
 function cambiarColorParadas(params) {
   puntosMetros.forEach((e) => e.classList.remove('st5'));

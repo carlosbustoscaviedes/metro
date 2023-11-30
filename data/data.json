@@ -1,7 +1,7 @@
 [
  {
   "id": "0",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/patioTaller/VIDEO_PATIO_TALLER_B.mp4?final009",
+  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/3d/1_PatioTaller_Pilotes.mp4",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/patio_taller/patio1.jpg"
@@ -39,7 +39,7 @@
  },
  {
   "id": "1",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/estacion1/VIDEO_MAPA_HINCADO.mp4?final009",
+  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/3d/2_Piloteadora_VigasU.mp4",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/estacion1/hincado1.jpg"
@@ -65,7 +65,7 @@
  },
  {
   "id": "2",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/estacion7/VIDEO_MAPA_PULPO.mp4?final009",
+  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/3d/3_Pulpo.mp4",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/estacion7/pulpo1.jpg"
@@ -114,7 +114,7 @@
  },
  {
   "id": "4",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/patioTaller/VIDEO_PATIO_TALLER_B.mp4?final009",
+  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/3d/4_Calle_26.mp4",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/estacion13/Calle-26-1.jpg"
@@ -151,7 +151,7 @@
  },
  {
   "id": "6",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/estacion16/VIDEO_MAPA_CALLE_72.mp4?final009",
+  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/3d/5_Calle_72.mp4",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/estacion16/calle_72_1.jpg"
@@ -177,7 +177,7 @@
  },
  {
   "id": "7",
-  "video3D": "https://www.eltiempo.com/infografias/2023/11/videos_metro/nomales/colaManiobras/heroes.mp4?final009",
+  "video3D": "",
   "fotos": [
    {
     "foto": "https://www.eltiempo.com/infografias/2023/11/metro/slider/colaManiobras/heroes1.jpg"

@@ -5,6 +5,11 @@
 
 
 
+body{
+
+    overflow: hidden;
+}
+
 /*----contenedor 1-----*/
 .contenedor_principal_inicio{
 	width: 100%;
@@ -288,7 +293,7 @@
     display: table;
     position: relative;
     min-width: 1100px;
-    max-width: 1400px;
+    max-width: 1137px;
     margin: auto;
 }
 /*----------------------------linea de paradas---------------------------------*/
@@ -988,6 +993,13 @@ p.texto_creditos_metro {
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
+    transition:transform .2s;
+}
+
+p.texto_creditos_metro:hover{
+
+    transform:scale(1.2)
+
 }
 
 .boton_regresar_creditos {
@@ -1147,6 +1159,39 @@ p.texto_creditos_metro {
   }
 
 }
+
+
+
+
+
+
+
+
+.animacion_galeria{
+
+    animation-duration: 1s !important;
+    animation-name: galeria_Zoom;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
+}
+
+@keyframes galeria_Zoom{
+  
+
+  0% {
+
+    transform: scale(0.4);
+
+  }
+
+  100% {
+
+    transform: scale(1);
+  }
+
+}
+
 
 
 

@@ -157,10 +157,20 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
         $(".texto_paradas1").text('ESTACIÓN 16');
         $(".texto_paradas2").text('Av.Caracas/ Calle 26');
       }
+      /*------letreros mobile----------*/
 
 
-      //   );
+
+
+
       $('.modal_galeria_metro').css('display', 'block'),
+   
+
+      $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
+      
+
+
+
         galeriaCarlos(numeroScroll - 1);
       if (numeroScroll == 4 || numeroScroll == 6) {
         $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'none');
@@ -187,6 +197,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
 
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
 }
+
 
 let currentY;
 let lastY;
@@ -261,10 +272,19 @@ const pathDuration = {
 function galeriaCarlos(posicion) {
   $('.modal_galeria_metro').css('display', 'block');
 
+  /*
+  if( $(window).height() > 600 ){
+    
+    $("#colocar_scroll").css('overflow-y', 'scroll')
+
+  }
+  */
+
+
   /*---------------llamar JSON-------------*/
   var UrlData =
 
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?et2342';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?austesVideos3D';
 
 
   let contenedor = $('.contenedor_infinito');
@@ -318,6 +338,7 @@ function galeriaCarlos(posicion) {
 
     
     
+
     
     $('.Fizquierda').click(function (event) {
       console.log(datos[posicion].fotos.length);
@@ -346,9 +367,7 @@ function galeriaCarlos(posicion) {
         /*--------MOSTRAR IMAGEN 360-------*/
         console.log(numeroScroll);
         if (numeroScroll) {
-          $(
-            '#imagen_iframe_1, #imagen_iframe_2, #imagen_iframe_3, #imagen_iframe_4, #imagen_iframe_5, #imagen_iframe_6, #imagen_iframe_7'
-          ).css('display', 'none');
+          $('#imagen_iframe_1, #imagen_iframe_2, #imagen_iframe_3, #imagen_iframe_4, #imagen_iframe_5, #imagen_iframe_6, #imagen_iframe_7').css('display', 'none');
           $(`#imagen_iframe_${numeroScroll}`).css('display', 'block');
         }
         /*--------FIN MOSTRAR IMAGEN 360-------*/
@@ -528,7 +547,7 @@ function galeriaCarlos(posicion) {
 
       /*---conetenedor puertas----*/
       $('.contenedor_titulo_metro').css('display', 'none');
-      $('.contenedor_puertas_abiertas, .contenedor_nota_metro').css('display','block');
+      $('.contenedor_puertas_abiertas, .contenedor_nota_metro').fadeIn(900)
 
       $(".contenedor_indicador_paradas, .indicador_paradas").css('display', 'none');
 
@@ -585,6 +604,8 @@ $(
 /*-----cerrar intr0 e inicio dle tren-----*/
 $('.titulo_metro_bogota').click(function (event) {
 
+
+
   /*--mobile--*/
   if( $(window).width() < 650 ){
 
@@ -597,7 +618,7 @@ $('.titulo_metro_bogota').click(function (event) {
   }
 
   $('.contenedor_puertas_abiertas').css('display', 'none');
-  $('.contenedorVistaMapa,  .estaciones_metro, .modal_galeria_metro').css('display', 'block');
+  $('.contenedorVistaMapa,  .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo').css('display', 'block');
 
 });
 
@@ -621,9 +642,8 @@ $('.texto_seccion_nota').hover(
 );
 
 $('.boton_cerrar_nota').click(function (event) {
-  $('.base_notas').css('display', 'block');
 
-  $('#base_notas').css('display', 'block');
+  $('#base_notas, #colocar_scroll').css('display', 'block');
   $('.contenedor_nota_metro').css('display', 'none');
 });
 
@@ -759,13 +779,16 @@ $('.imagen_de_inicio_especial').click(function (event) {
   setTimeout(function () {
 
     $('.contenedor_entrada_especial').css('display', 'none');
-    $('.contenedor_puertas_abiertas').css('display', 'block');
+    $('.contenedor_puertas_abiertas, .alinear_izquierda, .alinear_derecha').css('display', 'block');
+    
 
   }, 1200);
 
 
 
+
   setTimeout(function(){
+  
 
     if ($(window).width() > 1600) {
       $('.alinear_izquierda').animate({ left: '-31%' }, 400);
@@ -789,7 +812,6 @@ $('.imagen_de_inicio_especial').click(function (event) {
 
     }
 
-
   }, 1500)
 
 
@@ -799,7 +821,9 @@ $('.imagen_de_inicio_especial').click(function (event) {
     $(".contenedor_puertas").css('z-index', '2')
 
     $('.contenedor_titulo_metro').css('z-index', '3');
-  
+    
+    $(".contenedor_titulo_metro").css('display', 'flex');
+
   }, 1700);
 
 });
@@ -809,14 +833,14 @@ $('.imagen_de_inicio_especial').click(function (event) {
 /*----------------------VER CREDITOS---------------------*/
 $('.texto_creditos_metro').click(function (event) {
 
-  $('#base_notas').css('display', 'none');
-  $('#base_creditos').css('display', 'block');
+  $('#base_notas').css('display', 'none')
+  $('#base_creditos').fadeIn(800);
 
 });
 
 $('#regresar_a_otras_notas').click(function (event) {
 
-  $('#base_notas').css('display', 'block');
+  $('#base_notas').fadeIn(800);
   $('#base_creditos').css('display', 'none');
 
 });
