@@ -227,12 +227,11 @@ body{
 
 
 /*----contenedor 2-----*/
-.contenedor_puertas_abiertas{
-
-	width: 100%;
-	display: table;
-	background-color: #D9DAD0;
-    display: none;
+.contenedor_puertas_abiertas {
+    width: 100%;
+    display: table;
+    background-color: #D9DAD0;
+    display: block;
 }
 
 .puertas_abiertas {
@@ -251,14 +250,15 @@ body{
     background-color: #D9DAD0;
 }
 
-.alinear_izquierda {
-    float: left;
-    left: 26.9%;
-}
+
 
 .alinear_izquierda {
     float: left;
-    left: -8px;
+    left: -31%;
+}
+
+.alinear_derecha{
+    left: 31%;
 }
 
 .titulo_metro_bogota {
@@ -536,7 +536,7 @@ iframe {
     left: 0;
     right: 0;
     z-index: 0;
-    display: none;
+    display: block;
 }
 
 .base_credito_redes_sociales {
@@ -870,7 +870,7 @@ iframe {
 
 .alinear_derecha_interna{
     float: left;
-    left: 50%;
+    left: 31%;
 }
 
 .alinear_izquierda_interna {
