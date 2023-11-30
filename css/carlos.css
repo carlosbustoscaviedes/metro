@@ -17,11 +17,6 @@ body{
 }
 
 
-.reportajesMTR{
-
-
-    display: none;
-}
 
 
 .contenedor_personajes_audio{
@@ -232,11 +227,12 @@ body{
 
 
 /*----contenedor 2-----*/
-.contenedor_puertas_abiertas {
-    width: 100%;
-    display: table;
-    background-color: #D9DAD0;
-    display: block;
+.contenedor_puertas_abiertas{
+
+	width: 100%;
+	display: table;
+	background-color: #D9DAD0;
+    display: none;
 }
 
 .puertas_abiertas {
@@ -255,15 +251,14 @@ body{
     background-color: #D9DAD0;
 }
 
-
+.alinear_izquierda {
+    float: left;
+    left: 26.9%;
+}
 
 .alinear_izquierda {
     float: left;
-    left: -31%;
-}
-
-.alinear_derecha{
-    left: 31%;
+    left: -8px;
 }
 
 .titulo_metro_bogota {
@@ -541,7 +536,7 @@ iframe {
     left: 0;
     right: 0;
     z-index: 0;
-    display: block;
+    display: none;
 }
 
 .base_credito_redes_sociales {
@@ -689,12 +684,11 @@ iframe {
 .base_foto_credito {
     width: 100%;
     display: table;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
-.imagen_nota {
+.imagen_nota{
     width: 100%;
-    margin-bottom: 9px;
 }
 
 .base_texto_credito{
@@ -718,9 +712,8 @@ iframe {
 .base_texto_credito {
     width: 100%;
     display: table;
-    padding: 0px 47px;
+    padding: 6px 47px;
     box-sizing: border-box;
-    margin-bottom: 26px;
 }
 
 .txt_fotografia {
@@ -748,7 +741,6 @@ iframe {
     font-size: 16px;
     line-height: 19px;
     padding: 7px 0px;
-    font-weight: 500;
 }
 
 .contenedor_txt_2 {
@@ -878,7 +870,7 @@ iframe {
 
 .alinear_derecha_interna{
     float: left;
-    left: 31%;
+    left: 50%;
 }
 
 .alinear_izquierda_interna {
@@ -1171,12 +1163,7 @@ p.texto_creditos_metro:hover{
 
 
 
-.base_testimonios_mtr {
-    width: 100%;
-    display: table;
-    padding: 0px 13px;
-    box-sizing: border-box;
-}
+
 
 
 
@@ -1205,15 +1192,6 @@ p.texto_creditos_metro:hover{
 
 }
 
-
-.sumario_nota_metro {
-    margin: 24px auto 9px auto;
-}
-
-.icono_audio_mtr {
-    width: 40px;
-    margin-bottom: 17px;
-}
 
 
 
@@ -1358,23 +1336,6 @@ p.texto_creditos_metro:hover{
 
 
 @media(max-width: 650px){
-
-.base_testimonio_personajes.left_cuadro {
-    width: 44%;
-    float: left;
-    margin: 3%;
-    padding: 0;
-}
-
-p.nombre_encima_del_audio {
-    font-size: 13px;
-    top: 2px;
-}
-
-
-    .contenedor_nota_metro {
-    position: relative;
-}
 
     .contenedor_iframe {
         height: 180px;
@@ -1569,16 +1530,11 @@ p.nombre_encima_del_audio {
         background-image: inherit;
     }
     
-.titulo_nota_z {
-    font-size: 21px;
-    line-height: 25px;
-    padding: 0px 30px;
-}
-
-.nombre_autor {
-    font-size: 19px;
-    line-height: 17px;
-}
+    .titulo_nota_z {
+        font-size: 24px;
+        line-height: 29px;
+        padding: 0px 30px;
+    }
     
     .base_credito_redes_sociales {
         float: right;
@@ -1586,24 +1542,9 @@ p.nombre_encima_del_audio {
         margin-bottom: 48px;
     }
     
-.redaccion {
-    line-height: 17px;
-    font-size: 16px;
-}
-
-.texto_seleccione_audio {
-    font-size: 15px;
-}
-
-.actividad_persona {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.direccion_persona {
-    font-size: 13px;
-}
-
+    .redaccion {
+        line-height: 20px;
+    }
     
     .twitter {
         font-size: 16px;
@@ -1681,7 +1622,6 @@ p.nombre_encima_del_audio {
         position: relative;
         cursor: pointer;
         height: 100vh;
-        display: none;
     }
 
     
@@ -1768,21 +1708,7 @@ p.nombre_encima_del_audio {
 
     
     
- .contenedor_personajes_audio {
-    margin-bottom: 86px;
-}
-
-.redes_sociales.quitar_left {
-    width: 22px;
-}
-
-.boton_regresar {
-    position: fixed;
-    top: 94px;
-    left: 25px;
-    z-index: 9;
-    width: 110px;
-}
+ 
 
 
     }
@@ -1801,15 +1727,6 @@ p.nombre_encima_del_audio {
         width: 100%;
         height: 191px;
     }
-
-    .sumario_nota_metro {
-        width: 100%;
-        font-size: 16px;
-        line-height: 24px;
-        padding: 0px 30px;
-        box-sizing: border-box;
-    }
-
 
 }
 
