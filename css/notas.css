@@ -684,11 +684,12 @@ iframe {
 .base_foto_credito {
     width: 100%;
     display: table;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
-.imagen_nota{
+.imagen_nota {
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .base_texto_credito{
@@ -712,8 +713,9 @@ iframe {
 .base_texto_credito {
     width: 100%;
     display: table;
-    padding: 6px 47px;
+    padding: 0px 47px;
     box-sizing: border-box;
+    margin-bottom: 26px;
 }
 
 .txt_fotografia {
