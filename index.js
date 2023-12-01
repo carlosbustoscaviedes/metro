@@ -295,7 +295,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?austesVideos3D';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?austesDDD';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -420,7 +420,8 @@ function galeriaCarlos(posicion) {
         }
       }
 
-      if (num === datos[posicion].fotos.length) {
+      if (num === datos[posicion].fotos.length ) {
+
         $('.Fizquierda').css('display', 'none');
 
         /*--------MOSTRAR IMAGEN 360-------*/
@@ -604,6 +605,8 @@ function galeriaCarlos(posicion) {
 
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
+
+   
     if ($(window).width() < 650) {
       $('.base_controles_slider').css('display', 'none');
     }
@@ -627,6 +630,7 @@ function galeriaCarlos(posicion) {
       $(".alinear_derecha, .alinear_izquierda, .cerrar_imagenes").css('display', 'none');
       */
     } else {
+
       $('.modal_galeria_metro').css('display', 'none');
 
       $('.base_slider').remove();
@@ -654,6 +658,8 @@ function galeriaCarlos(posicion) {
       /*------reiniciar contenedor----*/
 
       $('.pantalla_bloqueo').css('display', 'none');
+
+
     }
   });
 }
