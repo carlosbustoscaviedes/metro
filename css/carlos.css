@@ -151,13 +151,13 @@ body{
 
 
 .titulo_actividad_credito {
-    
     font-family: "ardoise-std";
     font-style: normal;
     font-weight: 700;
     font-stretch: normal;
     text-align: center;
     margin-bottom: 4px;
+    line-height: 10px;
 }
 
 
@@ -881,12 +881,13 @@ iframe {
 }
 
 .contenedor_otrasNotas {
+    margin-top: 20px;
     width: 100%;
     max-width: 500px;
     min-width: 500px;
     display: table;
     background-color: #d9dad0;
-    margin: auto;
+    margin: 44px auto;
     position: relative;
     left: 0px;
     right: 0px;
@@ -1301,6 +1302,13 @@ p.texto_creditos_metro:hover{
     right: 21%;
 }
 
+
+.contenedor_otrasNotas {
+
+    transform: scale(0.9);
+}
+
+
 }
 
 
@@ -1319,6 +1327,12 @@ p.texto_creditos_metro:hover{
 
 
 @media(max-width: 1500px){
+
+
+.contenedor_otrasNotas {
+    transform: scale(0.75);
+     margin: -20px auto;
+}
 
 .boton_cerrar_nota {
     right: 13%;
@@ -1361,6 +1375,12 @@ p.texto_creditos_metro:hover{
 .boton_regresar {
     left: 67%;
     width: 105px;
+}
+
+.contenedor_otrasNotas {
+    transform: scale(0.7);
+    margin: 0px auto;
+    top: -65px;
 }
 
 }
@@ -1458,24 +1478,24 @@ p.texto_creditos_metro:hover{
     .texto_paradas1 {
         font-family: "ardoise-narrow-std";
         color: #FC6E53;
-        font-size: 18px;
+        font-size: 15px;
         text-transform: uppercase;
         text-align: center;
         padding: 10px 0px 0px 0px;
         border-bottom: 1px solid #EDEEE6;
         display: inline-block;
         font-weight: bold;
-    }
+      }
 
 
-    .texto_paradas2 {
+      .texto_paradas2 {
         font-family: "ardoise-narrow-std";
         color: #FC6E53;
-        font-size: 18px;
+        font-size: 15px;
         text-transform: uppercase;
         padding: 0px 0px 5px 0px;
         font-weight: 100;
-    }
+      }
 
 
 
@@ -1741,7 +1761,7 @@ p.texto_creditos_metro:hover{
         width: 80%;
         display: table;
         position: fixed;
-        top: 0;
+        top: 38px;
         z-index: 9;
         background-color: #292621;
         margin: auto;
@@ -1750,7 +1770,7 @@ p.texto_creditos_metro:hover{
         padding: 0px 12px 2px 12px;
         box-sizing: border-box;
         display: none;
-    }
+      }
 
     .alinear_izquierda {
         float: left;
@@ -1778,6 +1798,15 @@ p.texto_creditos_metro:hover{
         width: 100%;
         height: 191px;
     }
+
+    .texto_paradas1 {
+        font-size: 14px;
+        padding-bottom: 2px;
+      }
+
+      .texto_paradas2 {
+        font-size: 15px;
+      }
 
 }
 
