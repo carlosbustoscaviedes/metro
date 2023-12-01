@@ -295,7 +295,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?austesDDD';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?aurwerwer456456';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -378,9 +378,10 @@ function galeriaCarlos(posicion) {
     $('.Fizquierda').click(function (event) {
       console.log(datos[posicion].fotos.length);
 
-      if (num >= 0 && num < datos[posicion].fotos.length) {
+      if( num < datos[posicion].fotos.length) {
         num += 1;
         console.log(num);
+        console.log("posicion" + posicion)
 
         $('.Fderecha').css('display', 'block');
 
@@ -420,9 +421,11 @@ function galeriaCarlos(posicion) {
         }
       }
 
-      if (num === datos[posicion].fotos.length ) {
+      if (num == datos[posicion].fotos.length ) {
 
-        $('.Fizquierda').css('display', 'none');
+        console.log(datos[posicion].fotos.length);
+
+        //$('.Fizquierda').css('display', 'none');
 
         /*--------MOSTRAR IMAGEN 360-------*/
         console.log(numeroScroll);
@@ -603,6 +606,8 @@ function galeriaCarlos(posicion) {
     }
   );
 
+
+  
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
 
@@ -613,9 +618,7 @@ function galeriaCarlos(posicion) {
 
     let id = $(this).attr('id');
     if (id === '8') {
-      $(
-        '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo'
-      ).css('display', 'none');
+      $('.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo').css('display', 'none');
 
       /*---conetenedor puertas----*/
       $('.contenedor_titulo_metro').css('display', 'none');
@@ -842,6 +845,7 @@ $('.boton_regresar_creditos').click(function (event) {
 $('.imagen_de_inicio_especial').click(function (event) {
   $('.imagen_de_inicio_especial').addClass('animacion_portada');
 
+
   setTimeout(function () {
     $('.contenedor_entrada_especial').css('display', 'none');
     $('.contenedor_puertas_abiertas, .alinear_izquierda, .alinear_derecha').css(
@@ -849,6 +853,8 @@ $('.imagen_de_inicio_especial').click(function (event) {
       'block'
     );
   }, 1200);
+
+
 
   setTimeout(function () {
     if ($(window).width() > 1600) {
