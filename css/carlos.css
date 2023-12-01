@@ -191,6 +191,8 @@ body{
     display: table;
     overflow: hidden;
     height: 100vh;
+    z-index: 5;
+    position: relative;
 }
 
 .imagen_de_inicio_especial{
@@ -319,7 +321,7 @@ body{
     height: auto;
     /* border: 1px solid #ff000054; */
     position: absolute;
-    margin: 7% auto;
+    margin: 5% auto 0px;
     left: 0;
     right: 0;
     background-color: #FFFFFF;
@@ -624,6 +626,7 @@ iframe {
     display: table;
     /* background-color: blue; */
     margin: auto;
+    margin-bottom: 80px;
 }
 
 .base_contenedor_autor{
@@ -1181,18 +1184,22 @@ p.texto_creditos_metro:hover{
 @keyframes galeria_Zoom{
   
 
-  0% {
-
-    transform: scale(0.4);
-
+    0% {
+  
+      transform: scale(0.4);
+  
+    }
+  
+    100% {
+  
+      transform: scale(0.9);
+    }
+  
   }
 
-  100% {
-
-    transform: scale(1);
+  .modal_galeria_metro {
+    margin: 4% auto 0px;
   }
-
-}
 
 
 
@@ -1269,6 +1276,28 @@ p.texto_creditos_metro:hover{
 
 @media(max-width: 1800px){
 
+
+    @keyframes galeria_Zoom{
+  
+
+        0% {
+      
+          transform: scale(0.4);
+      
+        }
+      
+        100% {
+      
+          transform: scale(0.8);
+        }
+      
+      }
+
+      .modal_galeria_metro {
+        margin: 0% auto 0px;
+      }
+
+
 .boton_cerrar_nota {
     right: 21%;
 }
@@ -1300,6 +1329,27 @@ p.texto_creditos_metro:hover{
     left: 69%;
     width: 106px;
 }
+
+@keyframes galeria_Zoom{
+  
+
+    0% {
+  
+      transform: scale(0.4);
+  
+    }
+  
+    100% {
+  
+      transform: scale(0.7);
+    }
+  
+  }
+
+  .modal_galeria_metro {
+    margin: 0% auto 0px;
+  }
+
 
 }
 

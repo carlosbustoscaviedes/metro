@@ -206,6 +206,9 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
     $('#8').css('display', 'none');
   }
 
+
+
+
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
 }
 
@@ -261,6 +264,10 @@ const pathDuration = {
 //   path7: '2',
 // };
 
+
+
+
+
 /*------------------------------------------------CODIGO CARLOS--------GALERIA--------------------------------------------*/
 /* guia
 		let patio_taller  = 0;
@@ -292,6 +299,9 @@ function galeriaCarlos(posicion) {
 
   }
   */
+
+
+
 
   /*---------------llamar JSON-------------*/
   var UrlData =
@@ -378,9 +388,11 @@ function galeriaCarlos(posicion) {
     $('.Fizquierda').click(function (event) {
       console.log(datos[posicion].fotos.length);
 
+      num += 1;
+      console.log(num);
+
       if( num < datos[posicion].fotos.length) {
-        num += 1;
-        console.log(num);
+        
         console.log("posicion" + posicion)
 
         $('.Fderecha').css('display', 'block');
@@ -425,7 +437,7 @@ function galeriaCarlos(posicion) {
 
         console.log(datos[posicion].fotos.length);
 
-        //$('.Fizquierda').css('display', 'none');
+        $('.Fizquierda').css('display', 'none');
 
         /*--------MOSTRAR IMAGEN 360-------*/
         console.log(numeroScroll);
@@ -508,13 +520,13 @@ function galeriaCarlos(posicion) {
 
       $('.icono_foto').attr(
         'src',
-        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg'
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/FOTO-NARANJA.svg?90'
       );
       $('.icono_foto').css('transform', 'scale(0.9)');
 
       $('.icono_video').attr(
         'src',
-        'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg'
+        'https://www.eltiempo.com/infografias/2023/11/metro/img/VIDEO-GRIS-01.svg?90'
       );
       $('.icono_video').css('transform', 'scale(1.0)');
 
@@ -668,6 +680,11 @@ function galeriaCarlos(posicion) {
 }
 
 /*------------------------------------------------FIN CODIGO CARLOS--------GALERIA--------------------------------------------*/
+
+
+
+
+
 
 /*--------------------------------------------NOTAS INTERNAS NOV 23----------------------------------------*/
 
