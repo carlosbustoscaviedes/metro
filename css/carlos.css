@@ -295,9 +295,68 @@ body{
     display: table;
     position: relative;
     min-width: 1100px;
-    max-width: 1137px;
+    max-width: 1200px;
     margin: auto;
+    display: table;
 }
+
+.txt_proxima_parada {
+    font-size: 20px;
+    font-family: "ardoise-narrow-std";
+    float: left;
+    margin-right: 9px;
+}
+
+.base_recorrido_mtr {
+    width: 1027px;
+    float: left;
+    display: table;
+    /* background-color: blue; */
+    position: relative;
+}
+
+.base_parada_mtr {
+    width: 171px;
+    float: left;
+    text-align: center;
+    display: table;
+    position: relative;
+    z-index: 1;
+}
+
+p.nombre_parada {
+    font-family: "ardoise-std";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nombre_ubicacion {
+    font-family: "ardoise-std";
+    font-size: 13px;
+    font-weight: 400;
+    position: relative;
+    top: -4px;
+}
+
+.barra_linea_tiempo {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    position: relative;
+    top: 13px;
+    z-index: 0;
+}
+
+
+.circulo_de_parada {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    margin: 0px auto 5px auto;
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
 /*----------------------------linea de paradas---------------------------------*/
 
 .pantalla_bloqueo {
@@ -1408,6 +1467,10 @@ p.texto_creditos_metro:hover{
 
 @media(max-width: 650px){
 
+    .pantalla_bloqueo {
+        z-index: 1;
+    }
+
     .contenedor_iframe {
         height: 180px;
         background-color: inherit;
@@ -1455,6 +1518,30 @@ p.texto_creditos_metro:hover{
     
     }
 
+
+    
+    @keyframes galeria_Zoom{
+  
+
+        0% {
+      
+          transform: scale(0.4);
+      
+        }
+      
+        100% {
+      
+          transform: scale(1);
+        }
+      
+      }
+    
+     
+      .modal_galeria_metro {
+        top: 18%;
+        z-index: 2;
+    }
+    
    
 
     .icono_esconder_menu {
@@ -1760,8 +1847,8 @@ p.texto_creditos_metro:hover{
     .indicador_paradas {
         width: 80%;
         display: table;
-        position: fixed;
-        top: 38px;
+        position: absolute;
+        top: 79px;
         z-index: 9;
         background-color: #292621;
         margin: auto;
