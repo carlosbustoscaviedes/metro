@@ -103,7 +103,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   // Renderizar todo el svg para que cargue el camino y se vea una animación.
   contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${
     numeroScroll - 1
-  }.png?et113014"
+  }.png?et113015"
   x="-12"
   y="-8"
   id="IconoMetros"
@@ -132,7 +132,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       .querySelector('image')
       .setAttribute(
         'href',
-        `./pngAnimation/fin-trazo-${numeroScroll - 1}.png?et113014`
+        `./pngAnimation/fin-trazo-${numeroScroll - 1}.png?et113015`
       );
   }
 
@@ -206,9 +206,6 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
     $('#8').css('display', 'none');
   }
 
-
-
-
   /*----------------------------------------FIN CODIGO CARLOS-----------------------------------*/
 }
 
@@ -264,10 +261,6 @@ const pathDuration = {
 //   path7: '2',
 // };
 
-
-
-
-
 /*------------------------------------------------CODIGO CARLOS--------GALERIA--------------------------------------------*/
 /* guia
 		let patio_taller  = 0;
@@ -299,9 +292,6 @@ function galeriaCarlos(posicion) {
 
   }
   */
-
-
-
 
   /*---------------llamar JSON-------------*/
   var UrlData =
@@ -391,9 +381,8 @@ function galeriaCarlos(posicion) {
       num += 1;
       console.log(num);
 
-      if( num < datos[posicion].fotos.length) {
-        
-        console.log("posicion" + posicion)
+      if (num < datos[posicion].fotos.length) {
+        console.log('posicion' + posicion);
 
         $('.Fderecha').css('display', 'block');
 
@@ -433,8 +422,7 @@ function galeriaCarlos(posicion) {
         }
       }
 
-      if (num == datos[posicion].fotos.length ) {
-
+      if (num == datos[posicion].fotos.length) {
         console.log(datos[posicion].fotos.length);
 
         $('.Fizquierda').css('display', 'none');
@@ -618,19 +606,17 @@ function galeriaCarlos(posicion) {
     }
   );
 
-
-  
   /*---cerrar modal---*/
   $('.cerrar_imagenes').click(function (event) {
-
-   
     if ($(window).width() < 650) {
       $('.base_controles_slider').css('display', 'none');
     }
 
     let id = $(this).attr('id');
     if (id === '8') {
-      $('.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo').css('display', 'none');
+      $(
+        '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo'
+      ).css('display', 'none');
 
       /*---conetenedor puertas----*/
       $('.contenedor_titulo_metro').css('display', 'none');
@@ -645,7 +631,6 @@ function galeriaCarlos(posicion) {
       $(".alinear_derecha, .alinear_izquierda, .cerrar_imagenes").css('display', 'none');
       */
     } else {
-
       $('.modal_galeria_metro').css('display', 'none');
 
       $('.base_slider').remove();
@@ -673,18 +658,11 @@ function galeriaCarlos(posicion) {
       /*------reiniciar contenedor----*/
 
       $('.pantalla_bloqueo').css('display', 'none');
-
-
     }
   });
 }
 
 /*------------------------------------------------FIN CODIGO CARLOS--------GALERIA--------------------------------------------*/
-
-
-
-
-
 
 /*--------------------------------------------NOTAS INTERNAS NOV 23----------------------------------------*/
 
@@ -862,7 +840,6 @@ $('.boton_regresar_creditos').click(function (event) {
 $('.imagen_de_inicio_especial').click(function (event) {
   $('.imagen_de_inicio_especial').addClass('animacion_portada');
 
-
   setTimeout(function () {
     $('.contenedor_entrada_especial').css('display', 'none');
     $('.contenedor_puertas_abiertas, .alinear_izquierda, .alinear_derecha').css(
@@ -870,8 +847,6 @@ $('.imagen_de_inicio_especial').click(function (event) {
       'block'
     );
   }, 1200);
-
-
 
   setTimeout(function () {
     if ($(window).width() > 1600) {
