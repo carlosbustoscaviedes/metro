@@ -171,8 +171,8 @@ h6 {
 
  @media screen and (min-width: 768px) {
   width: var(--anchoPantallaPequena);
-  animation: ubicacionMapa2 linear forwards;
-
+  /* animation: ubicacionMapa2 linear forwards; */
+  animation-name: ubicacionMapa2;
  }
 
  /* &.reverseAnimation {
