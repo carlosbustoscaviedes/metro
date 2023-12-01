@@ -546,7 +546,7 @@ iframe {
     display: table;
     float: right;
     position: relative;
-    background-image: url('../img/marco_autor.svg');
+    background-image: url('https://www.eltiempo.com/infografias/2023/11/metro/img/marco_autor.svg');
     background-repeat: no-repeat;
     padding: 25px;
     margin-bottom: 84px;
@@ -890,7 +890,7 @@ iframe {
     position: relative;
     left: 0px;
     right: 0px;
-    background-image: url('../img/marco_creditos.svg');
+    background-image: url('https://www.eltiempo.com/infografias/2023/11/metro/img/marco_creditos.svg');
     background-repeat: no-repeat;
     display: block;
 }
@@ -909,12 +909,11 @@ iframe {
     align-items: center;
 }
 
-/*
+
 #colocar_scroll{
 
     overflow-y: scroll;
 }
-*/
 
 
 .icono_leer_notas {
