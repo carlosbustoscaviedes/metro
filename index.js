@@ -181,7 +181,9 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       /*------letreros mobile----------*/
 
       $('.modal_galeria_metro').css('display', 'block'),
+
         $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
+        
 
       galeriaCarlos(numeroScroll - 1);
       setTimeout(() => {
@@ -298,7 +300,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?hhhhhhhh';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?hg9999556456h';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -316,13 +318,13 @@ function galeriaCarlos(posicion) {
     for (let i = 0; i < datos[posicion].fotos.length; i++) {
       if ($(window).width() > 650) {
         let slider = `<div class="base_slider">
-                      <img src="${datos[posicion].fotos[i].foto}" class="imagen_slider">
+                      <img src="${datos[posicion].fotos[i].foto}" loading="lazy" class="imagen_slider">
                     </div>`;
 
         contenedor.append(slider);
       } else {
         let slider = `<div class="base_slider">
-                      <img src="${datos[posicion].fotos_M[i].foto}" class="imagen_slider">
+                      <img src="${datos[posicion].fotos_M[i].foto}" loading="lazy" class="imagen_slider">
                     </div>`;
 
         contenedor.append(slider);
@@ -392,7 +394,7 @@ function galeriaCarlos(posicion) {
       num += 1;
       console.log(num);
 
-      if (num < datos[posicion].fotos.length) {
+      if (num <= datos[posicion].fotos.length) {
         console.log('posicion' + posicion);
 
         $('.Fderecha').css('display', 'block');
@@ -456,6 +458,9 @@ function galeriaCarlos(posicion) {
         $('.contenedor_slider').css('z-index', '2');
       }
     });
+
+
+
 
     $('.Fderecha').click(function (event) {
       if (num >= 1 && num <= datos[posicion].fotos.length) {
@@ -559,7 +564,16 @@ function galeriaCarlos(posicion) {
 
       $('#contenedor_video1').css('display', 'none');
       $('.contenedor_slider').css('display', 'none');
-      $('#video_normal').css('display', 'block');
+
+      if( $(window).width() > 650 ){
+
+        $('#video_normal').css('display', 'block');
+      
+      }else{
+
+        $('#video_normal').css('display', 'flex');
+      }
+      
 
       $('.logo_360').css('display', 'none');
     });
@@ -625,9 +639,7 @@ function galeriaCarlos(posicion) {
 
     let id = $(this).attr('id');
     if (id === '8') {
-      $(
-        '.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo'
-      ).css('display', 'none');
+      $('.contenedorVistaMapa, .base_mapa_ruta, .estaciones_metro, .modal_galeria_metro, .pantalla_bloqueo').css('display', 'none');
 
       /*---conetenedor puertas----*/
       $('.contenedor_titulo_metro').css('display', 'none');
@@ -654,8 +666,18 @@ function galeriaCarlos(posicion) {
       console.log(num);
 
       /*------reiniciar contenedor----*/
-      $('div#contenedor_video1').css('display', 'block'),
-        $('.contenedor_slider, #video_normal').css('display', 'none');
+      if( $(window).width() > 650 ){
+
+        $('div#contenedor_video1').css('display', 'block')
+      
+      }else{
+
+        $('div#contenedor_video1').css('display', 'flex')
+      }
+     
+
+
+      $('.contenedor_slider, #video_normal').css('display', 'none');
       $('.icono_video, .icono_foto').css('transform', 'scale(1)');
       $('.icono_video, .icono_foto').css('transform', 'scale(1)');
       $('.icono_video').attr(
@@ -699,9 +721,10 @@ $('.titulo_metro_bogota').click(function (event) {
   $('.contenedor_puertas_abiertas').css('display', 'none');
   $('.contenedorVistaMapa,  .estaciones_metro').css('display', 'block');
 
+  /*----Galeria al inicio  inicio-----*/
   setTimeout(function () {
     $('.modal_galeria_metro, .pantalla_bloqueo').css('display', 'block');
-  }, 4500);
+  }, 8500);
 });
 /*-------------------FIN PRIMERA PANTALLA TREN-------------------*/
 
