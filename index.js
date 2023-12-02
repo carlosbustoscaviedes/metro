@@ -17,14 +17,14 @@ let posicion = 0;
 window.onload = galeriaCarlos(0);
 
 const estaciones = {
-  estacion1: 'patio',
-  estacion2: 'estacion1',
-  estacion3: 'estacion7',
+  estacion1: 'parada1',
+  estacion2: 'parada2',
+  estacion3: 'parada3',
   estacion4: '',
-  estacion5: 'estacion13',
+  estacion5: 'parada4',
   estacion6: '',
-  estacion7: 'estacion16',
-  estacion8: 'colaManiobras',
+  estacion7: 'parada5',
+  estacion8: 'parada6',
 };
 const estacionesMobile = {
   estacion1: 'parada-1',
@@ -37,14 +37,15 @@ const estacionesMobile = {
   estacion8: 'parada-6',
 };
 
-let puntosMetros = document.querySelectorAll('.puntos_reset');
+let puntosMetros = document.querySelectorAll('.circulo_de_parada');
 
 function cambiarColorParadas(params) {
   if (mediaQuery.matches) {
-    puntosMetros.forEach((e) => e.classList.remove('st5'));
+    puntosMetros.forEach((e) => e.classList.remove('enLaParada'));
+    console.log(numeroScroll, 'numeroScrollColor');
     document
       .getElementById(estaciones[`estacion${numeroScroll}`])
-      .classList.add('st5');
+      .classList.add('enLaParada');
   } else {
     document
       .querySelectorAll('#Circulos path')
@@ -311,26 +312,19 @@ function galeriaCarlos(posicion) {
     //console.log(estacion1.fotos.foto[0])
 
     for (let i = 0; i < datos[posicion].fotos.length; i++) {
-
-      if( $(window).width() > 650  ){
-
+      if ($(window).width() > 650) {
         let slider = `<div class="base_slider">
-                      <img src="${ datos[posicion].fotos[i].foto }" class="imagen_slider">
+                      <img src="${datos[posicion].fotos[i].foto}" class="imagen_slider">
                     </div>`;
 
         contenedor.append(slider);
-      
-      }else{
-
+      } else {
         let slider = `<div class="base_slider">
-                      <img src="${ datos[posicion].fotos_M[i].foto }" class="imagen_slider">
+                      <img src="${datos[posicion].fotos_M[i].foto}" class="imagen_slider">
                     </div>`;
 
         contenedor.append(slider);
-
-
       }
-      
     }
 
     /*--------slider------*/
@@ -705,7 +699,7 @@ $('.titulo_metro_bogota').click(function (event) {
 
   setTimeout(function () {
     $('.modal_galeria_metro, .pantalla_bloqueo').css('display', 'block');
-  }, 2500);
+  }, 4500);
 });
 /*-------------------FIN PRIMERA PANTALLA TREN-------------------*/
 

@@ -171,24 +171,9 @@ h6 {
 
  @media screen and (min-width: 768px) {
   width: var(--anchoPantallaPequena);
-  /* animation: ubicacionMapa2 linear forwards; */
   animation-name: ubicacionMapa2;
  }
 
- /* &.reverseAnimation {
-
-  .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono3Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  }
- } */
-
- .metroIcono,
- #IconoMetros {
-  /* animation: ubicacionIcono2 linear forwards; */
-  /* animation-duration: var(--duracionAnimacion); */
- }
 }
 
 
@@ -202,21 +187,6 @@ h6 {
   width: var(--anchoPantallaPequena);
 
  }
-
- &.reverseAnimation {
-
-  /* .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono4Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  } */
- }
-
- /* .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono3 linear forwards;
-  animation-duration: var(--duracionAnimacion);
- } */
 }
 
 .ubicacion4 {
@@ -229,20 +199,6 @@ h6 {
 
  }
 
- &.reverseAnimation {
-
-  /* .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono5Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  } */
- }
-
- /* .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono4 linear forwards;
-  animation-duration: var(--duracionAnimacion);
- } */
 }
 
 .ubicacion5 {
@@ -255,21 +211,6 @@ h6 {
   width: var(--anchoPantallaPequena);
 
  }
-
- /* &.reverseAnimation {
-
-  .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono6Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  } */
- /* } */
-
- /* .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono5 linear forwards;
-  animation-duration: var(--duracionAnimacion);
- } */
 }
 
 .ubicacion6 {
@@ -282,21 +223,6 @@ h6 {
   width: var(--anchoPantallaPequena);
 
  }
-
- /* &.reverseAnimation {
-
-  .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono7Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  }
- }
-
- .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono6 linear forwards;
-  animation-duration: var(--duracionAnimacion);
- } */
 }
 
 .ubicacion7 {
@@ -310,21 +236,6 @@ h6 {
 
  }
 
- /* &.reverseAnimation {
-
-  .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono8Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  }
- }
-
- .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono7 linear forwards;
-  animation-duration: var(--duracionAnimacion);
-
- } */
 }
 
 .ubicacion8 {
@@ -339,32 +250,12 @@ h6 {
 
  }
 
- /* &.reverseAnimation {
-
-  .metroIcono,
-  #IconoMetros {
-   animation: ubicacionIcono8Reverse linear reverse forwards;
-   animation-duration: var(--duracionAnimacion);
-  }
- }
-
-
-
- .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono8 linear forwards;
-  animation-duration: var(--duracionAnimacion);
- } */
 
 }
 
 .reverseAnimation {
  animation: ubicacionMapa2Reverse var(--duracionAnimacion) linear reverse forwards;
 
- /* .metroIcono,
- #IconoMetros {
-  animation: ubicacionIcono2Reverse var(--duracionAnimacion) linear reverse forwards;
- } */
 }
 
 
@@ -399,6 +290,7 @@ li {
  /* fill: #000; */
 
  width: 23px;
+ width: 21px;
  /* width: 15px; */
  /* width: 14px; */
  object-fit: contain;
@@ -452,4 +344,8 @@ li {
   visibility: initial;
   opacity: 1;
  }
+}
+
+.enLaParada {
+ background: #fc6e53;
 }
