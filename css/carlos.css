@@ -1003,21 +1003,21 @@ iframe {
     text-decoration: none;
 }
 
+
 .contenedor_otrasNotas {
-    
- margin-top: 20px;
- width: 100%;
- max-width: 500px;
- min-width: 500px;
- display: table;
- background-color: #d9dad0;
- margin: 44px auto;
- position: relative;
- left: 0px;
- right: 0px;
- background-image: url('https://www.eltiempo.com/infografias/2023/11/metro/img/marco_creditos.svg?90');
- background-repeat: no-repeat;
- display: block;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 558px;
+  display: table;
+  background-color: #d9dad0;
+  margin: 44px auto;
+  position: relative;
+  left: 0px;
+  right: 0px;
+  background-image: url(https://www.eltiempo.com/infografias/2023/11/metro/img/marco_creditos.svg?90);
+  background-repeat: no-repeat;
+  display: block;
 }
 
 .base_otras_notas {
