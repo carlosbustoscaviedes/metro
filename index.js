@@ -189,8 +189,9 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       /*------letreros mobile----------*/
 
       $('.modal_galeria_metro').css('display', 'block'),
+      $('.pantalla_bloqueo').css('display', 'block'),
 
-        $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
+      $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
         
 
       galeriaCarlos(numeroScroll - 1);
@@ -308,7 +309,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?hg9999556456h';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?h88888888';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -915,11 +916,13 @@ $('.imagen_de_inicio_especial').click(function (event) {
   setTimeout(function () {
     $('.contenedor_nota_metro').css('z-index', '3');
 
-    $('.contenedor_puertas').css('z-index', '2');
+    $('.contenedor_puertas').css('z-index', '2'); 
 
-    $('.contenedor_titulo_metro').css('z-index', '3');
+    $(".base_otras_notas").css('display', 'block');
 
-    $('.contenedor_titulo_metro').css('display', 'flex');
+    //$('.contenedor_titulo_metro').css('z-index', '3');
+
+    //$('.contenedor_titulo_metro').css('display', 'flex');
   }, 1700);
 });
 
