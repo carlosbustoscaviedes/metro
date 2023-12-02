@@ -295,7 +295,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?aurwerwer456456';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?a555555H';
 
   let contenedor = $('.contenedor_infinito');
 
@@ -311,11 +311,26 @@ function galeriaCarlos(posicion) {
     //console.log(estacion1.fotos.foto[0])
 
     for (let i = 0; i < datos[posicion].fotos.length; i++) {
-      let slider = `<div class="base_slider">
-                      <img src="${datos[posicion].fotos[i].foto}" class="imagen_slider">
+
+      if( $(window).width() > 650  ){
+
+        let slider = `<div class="base_slider">
+                      <img src="${ datos[posicion].fotos[i].foto }" class="imagen_slider">
                     </div>`;
 
-      contenedor.append(slider);
+        contenedor.append(slider);
+      
+      }else{
+
+        let slider = `<div class="base_slider">
+                      <img src="${ datos[posicion].fotos_M[i].foto }" class="imagen_slider">
+                    </div>`;
+
+        contenedor.append(slider);
+
+
+      }
+      
     }
 
     /*--------slider------*/

@@ -1480,11 +1480,10 @@ p.texto_creditos_metro:hover{
         right: 0;
         height: 198px;
     }
-
     .logo_360 {
-        width: 49px;
+        width: 46px;
         position: absolute;
-        top: 376px;
+        top: 540px;
         right: 109px;
         display: none;
     }
@@ -1633,7 +1632,7 @@ p.texto_creditos_metro:hover{
     .contenedor_slider {
         width: 350px;
         max-width: 1000px;
-        height: 196px;
+        height: 357px;
         margin: auto;
     }
 
@@ -1812,8 +1811,8 @@ p.texto_creditos_metro:hover{
     }
 
     .modal_galeria_metro {
-        top: 24%;
-        z-index: 2;
+        top: 79px;
+        z-index: 9;
     }
 
 
@@ -1899,6 +1898,13 @@ p.texto_creditos_metro:hover{
 
 @media(max-width: 365px){
 
+    .contenedor_slider {
+        width: 350px;
+        max-width: 1000px;
+        height: 299px;
+        margin: auto;
+    }
+
 
     iframe {
         width: 100%;
@@ -1976,7 +1982,6 @@ p.twitter {
     font-size: 12px;
     top: 1px;
 }
-
 
 
 }
