@@ -1843,18 +1843,18 @@ p.texto_creditos_metro:hover {
  }
 
  .contenedor_indicador_paradas {
-  width: 60%;
-  display: table;
-  position: fixed;
-  background-color: #fff;
-  padding: 20px 16px;
-  box-sizing: border-box;
-  right: -50%;
-  top: 34%;
-  border: 1px solid red;
-  z-index: 1;
-  display: none;
- }
+    width: 60%;
+    display: table;
+    position: fixed;
+    background-color: #fff;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    right: -50%;
+    top: 34%;
+    /* border: 1px solid red; */
+    z-index: 1;
+    display: none;
+}
 
  .indicador_paradas {
   width: 80%;

@@ -37,6 +37,14 @@ const estacionesMobile = {
   estacion8: 'parada-6',
 };
 
+
+if( $(window).width() < 650 ){
+  $("#mapa").attr('src', 'https://www.eltiempo.com/infografias/2023/11/videos_metro/Mapas/mapa-bogota-back-mobile-min.jpg?88889')
+}else{
+ $("#mapa").attr('src', 'https://www.eltiempo.com/infografias/2023/11/videos_metro/Mapas/mapa-bogota-back-min.jpg?et11888')
+}
+
+
 let puntosMetros = document.querySelectorAll('.circulo_de_parada');
 
 function cambiarColorParadas(params) {
