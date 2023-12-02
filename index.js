@@ -105,8 +105,8 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${
     numeroScroll - 1
   }.png?et113015"
-  x="-12"
-  y="-8"
+  x="-11"
+  y="-7"
   id="IconoMetros"
   class="metroIcono">
    <animateMotion
@@ -184,13 +184,15 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
         $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
 
       galeriaCarlos(numeroScroll - 1);
-      if (numeroScroll == 4 || numeroScroll == 6) {
-        $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'none');
-        document.getElementById('mapaSolo').classList.add('active');
-      } else {
-        $('.pantalla_bloqueo').css('display', 'block');
-        document.getElementById('mapaSolo').classList.remove('active');
-      }
+      setTimeout(() => {
+        if (numeroScroll == 4 || numeroScroll == 6) {
+          $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'none');
+          document.getElementById('mapaSolo').classList.add('active');
+        } else {
+          $('.pantalla_bloqueo').css('display', 'block');
+          document.getElementById('mapaSolo').classList.remove('active');
+        }
+      }, 2000);
 
       //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
       cambiarColorParadas();
