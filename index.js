@@ -186,6 +186,11 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
         $('.texto_paradas2').text('Av.Caracas/ Calle 26');
       }
 
+      if (numeroScroll == 9) {
+        $('.texto_paradas1').text('ESTACIÓN 16');
+        $('.texto_paradas2').text('Av.Caracas/ Calle 26');
+      }
+
       /*------letreros mobile----------*/
 
  

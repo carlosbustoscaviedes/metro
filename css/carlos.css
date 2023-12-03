@@ -641,18 +641,18 @@ iframe {
 }
 
 .contenedor_nota_metro {
- width: 100%;
- max-width: 1000px;
- /* background-color: red; */
- margin: auto;
- position: absolute;
- height: 91.5vh;
- overflow-y: scroll;
- margin-top: 77px;
- left: 0;
- right: 0;
- z-index: 0;
- display: none;
+  width: 100%;
+  max-width: 1000px;
+  /* background-color: red; */
+  margin: auto;
+  position: absolute;
+  height: 78.5vh;
+  overflow-y: scroll;
+  margin-top: 77px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  display: none;
 }
 
 .base_credito_redes_sociales {
@@ -736,12 +736,12 @@ iframe {
 }
 
 .base_contenedor_textos {
- width: 100%;
- max-width: 684px;
- display: table;
- /* background-color: blue; */
- margin: auto;
- margin-bottom: 80px;
+  width: 100%;
+  max-width: 684px;
+  display: table;
+  /* background-color: blue; */
+  margin: auto;
+  margin-bottom: 0px;
 }
 
 .base_contenedor_autor {
