@@ -112,7 +112,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
   // Renderizar todo el svg para que cargue el camino y se vea una animación.
   contenedorSvgMetro.innerHTML = `<svg viewBox="0 0 1961.9 686.9" style="enable-background:new 0 0 1961.9 686.9;" xmlns="http://www.w3.org/2000/svg" id="svgPrueba" ><image href="./pngAnimation/trazo-${
     numeroScroll - 1
-  }.png?et113015"
+  }.png?et113016"
   x="-11"
   y="-7"
   id="IconoMetros"
@@ -141,7 +141,7 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
       .querySelector('image')
       .setAttribute(
         'href',
-        `./pngAnimation/fin-trazo-${numeroScroll - 1}.png?et113015`
+        `./pngAnimation/fin-trazo-${numeroScroll - 1}.png?et113016`
       );
   }
 
