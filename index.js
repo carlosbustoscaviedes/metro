@@ -188,22 +188,25 @@ function templateSVGRutas(reversa, funcionClick = false, eventClick) {
 
       /*------letreros mobile----------*/
 
-      $('.modal_galeria_metro').css('display', 'block'),
-      $('.pantalla_bloqueo').css('display', 'block'),
+ 
+      
 
-      $('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
+      
         
 
       galeriaCarlos(numeroScroll - 1);
+      
       setTimeout(() => {
         if (numeroScroll == 4 || numeroScroll == 6) {
           $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'none');
           document.getElementById('mapaSolo').classList.add('active');
         } else {
-          $('.pantalla_bloqueo').css('display', 'block');
+
+          //$('.modal_galeria_metro').animate({ transform: 'scale(1.3)' }, 400);
+          $('.pantalla_bloqueo, .modal_galeria_metro').css('display', 'block');
           document.getElementById('mapaSolo').classList.remove('active');
         }
-      }, 2000);
+      }, 1800);
 
       //document.querySelector('[data-icono="icono"]').setAttribute('href', './pngAnimation/fin-trazo-1.png')
       cambiarColorParadas();
@@ -287,7 +290,9 @@ const pathDuration = {
 		*/
 
 function galeriaCarlos(posicion) {
-  $('.modal_galeria_metro').css('display', 'block');
+
+
+  
 
   if ($(window).width() < 650) {
     $('.alinear_izquierda').attr(
@@ -340,6 +345,8 @@ function galeriaCarlos(posicion) {
       }
     }
 
+
+    
     /*--------slider------*/
     let anchoBaseSlider = 1000;
 
@@ -733,7 +740,7 @@ $('.titulo_metro_bogota').click(function (event) {
   /*----Galeria al inicio  inicio-----*/
   setTimeout(function () {
     $('.modal_galeria_metro, .pantalla_bloqueo').css('display', 'block');
-  }, 8500);
+  }, 5500);
 });
 /*-------------------FIN PRIMERA PANTALLA TREN-------------------*/
 
