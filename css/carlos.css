@@ -1315,9 +1315,8 @@ p.texto_creditos_metro:hover {
  }
 
  100% {
-
-  transform: scale(0.9);
- }
+  transform: scale(1);
+}
 
 }
 
@@ -1412,14 +1411,14 @@ p.texto_creditos_metro:hover {
 
   100% {
 
-   transform: scale(0.8);
+   transform: scale(0.9);
   }
 
  }
 
  .modal_galeria_metro {
-  margin: 0% auto 0px;
- }
+  margin: 57px auto 0px;
+}
 
 
  .boton_cerrar_nota {
@@ -1442,7 +1441,9 @@ p.texto_creditos_metro:hover {
   right: 17%;
  }
 
-
+ .modal_galeria_metro {
+  margin: 40px auto 0px;
+}
 
 
 }
@@ -1478,7 +1479,7 @@ p.texto_creditos_metro:hover {
 
   100% {
 
-   transform: scale(0.7);
+    transform: scale(0.9);
   }
 
  }
@@ -1487,6 +1488,15 @@ p.texto_creditos_metro:hover {
   margin: 0% auto 0px;
  }
 
+ .estaciones_metro {
+  transform: scale(0.9);
+}
+
+.base_mapa_ruta.esconder_desktop {
+  padding: 8px 90px 9px 90px;
+  height: 80px;
+}
+
 
 }
 
@@ -1494,6 +1504,26 @@ p.texto_creditos_metro:hover {
 
 
 @media(max-width: 1450px) {
+
+  .modal_galeria_metro {
+    margin: -12px auto 0px;
+}
+
+  @keyframes galeria_Zoom {
+
+
+    0% {
+  
+     transform: scale(0.4);
+  
+    }
+  
+    100% {
+  
+      transform: scale(0.8);
+    }
+  
+   }
 
 
  .boton_regresar {
@@ -1505,6 +1535,11 @@ p.texto_creditos_metro:hover {
   transform: scale(0.7);
   margin: 0px auto;
   top: -65px;
+ }
+
+ .base_mapa_ruta {
+  width: 100%;
+  min-width: 1386px;
  }
 
 }
@@ -1523,6 +1558,27 @@ p.texto_creditos_metro:hover {
  .boton_cerrar_nota {
   right: 11%;
  }
+
+ @keyframes galeria_Zoom {
+
+
+  0% {
+
+   transform: scale(0.4);
+
+  }
+
+  100% {
+
+    transform: scale(0.75);
+  }
+
+ }
+
+
+ .modal_galeria_metro {
+  margin: -47px auto 0px;
+}
 
 
 }
@@ -1822,11 +1878,11 @@ p.texto_creditos_metro:hover {
   box-sizing: border-box;
  }
 
- .base_otras_notas {
-  padding: 0px 20px;
-  box-sizing: border-box;
-  background-color: #d9dad0;
- }
+  .modal_galeria_metro {
+    top: 52px;
+    z-index: 9;
+    height: 90vh;
+  }
 
 
 
@@ -1859,6 +1915,7 @@ p.texto_creditos_metro:hover {
  }
 
 
+ 
  .contenedor_video {
     width: 100%;
     max-width: 1000px;
@@ -1882,9 +1939,9 @@ p.texto_creditos_metro:hover {
  }
 
  .modal_galeria_metro {
-    top: 79px;
-    z-index: 9;
-    height: 90vh;
+  top: 98px;
+  z-index: 9;
+  height: 90vh;
 }
 
 
@@ -1915,11 +1972,11 @@ p.texto_creditos_metro:hover {
     display: none;
 }
 
- .indicador_paradas {
+.indicador_paradas {
   width: 80%;
   display: table;
   position: absolute;
-  top: 79px;
+  top: 51px;
   z-index: 9;
   background-color: #292621;
   margin: auto;
@@ -1928,7 +1985,7 @@ p.texto_creditos_metro:hover {
   padding: 0px 12px 2px 12px;
   box-sizing: border-box;
   display: none;
- }
+}
 
  .alinear_izquierda {
   float: left;
@@ -2084,6 +2141,22 @@ p.texto_creditos_metro:hover {
 
 
 @media(max-width: 345px) {
+
+
+.modal_galeria_metro {
+  
+  top: 91px;
+  z-index: 9;
+  height: 90vh;
+
+}
+
+
+  .modal_galeria_metro {
+    top: 43px;
+    z-index: 9;
+    height: 90vh;
+  }
 
  .nombre_persona_mtr {
   font-size: 15px;

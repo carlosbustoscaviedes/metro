@@ -309,7 +309,7 @@ function galeriaCarlos(posicion) {
 
   /*---------------llamar JSON-------------*/
   var UrlData =
-    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?h88888888';
+    'https://www.eltiempo.com/infografias/2023/11/metro/data/data.json?999999999999';
 
   let contenedor = $('.contenedor_infinito');
 
